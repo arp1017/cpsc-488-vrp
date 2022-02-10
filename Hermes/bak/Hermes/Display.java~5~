@@ -1,0 +1,115 @@
+package Hermes;
+
+import java.awt.*;
+import javax.swing.JFrame;
+import com.borland.jbcl.layout.*;
+import com.borland.jbcl.control.*;
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+import Zeus.*;
+
+/**
+ * <p>Title: Display.java </p>
+ * <p>Description: Graphical display of a route.</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class Display extends JFrame {
+  ZeusAdaptor zAdapt;
+  XYLayout xYLayout1 = new XYLayout();
+  ShapeControl shapeControl1 = new ShapeControl();
+  ShapeControl shapeControl2 = new ShapeControl();
+  ShapeControl [] shapeControlArr = new ShapeControl[1000];
+  ShapeControl [] verticeArr = new ShapeControl [1000];
+
+  public Display(Zeus z) {
+    zAdapt = new ZeusAdaptor(z);
+    try  {
+      jbInit();
+    }
+    catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  //finds min between two numbers;
+private synchronized int min(int num1, int num2){
+  if(num1<num2)
+    return num1;
+  else
+    return num2;
+}
+
+/**
+ * initializes the display frame
+ * @throws Exception
+ */
+  private void jbInit() throws Exception {
+  try{
+    this.getContentPane().setBackground(SystemColor.window);
+    this.getContentPane().setLayout(xYLayout1);
+    shapeControl1.setEdgeColor(SystemColor.controlText);
+    shapeControl1.setType(ShapeControl.VERT_LINE);
+    xYLayout1.setHeight(450);
+    xYLayout1.setWidth(500);
+    shapeControl2.setType(ShapeControl.HORZ_LINE);
+    for(int i = 1; i <= zAdapt.getSize() - (2 * zAdapt.getNumTrucks()); i++){
+      shapeControlArr[i] = new ShapeControl();
+      shapeControlArr[i].setType(ShapeControl.CIRCLE);
+      shapeControlArr[i].setEdgeColor(Color.blue);
+      shapeControlArr[i].setForeground(Color.red);
+      int x = 250+(int)(zAdapt.getX(i) - zAdapt.getDepotX())*5;
+      int y = 225+(int)(zAdapt.getY(i) - zAdapt.getDepotY())*5;
+      this.getContentPane().add(shapeControlArr[i], new XYConstraints(x, y, 7, 7));
+    }
+    int vNum = 0;
+   Color [] cArr = new Color[100];
+
+   for(int j = 0; j <= zAdapt.getSize() - (2 * zAdapt.getNumTrucks()); j++){
+        verticeArr[vNum] = new ShapeControl();
+
+        String line = zAdapt.getVertice(j);
+        StringTokenizer st = new StringTokenizer(line,";");
+        if(line!=""){
+          int x1 = 250+(int)(Float.valueOf(st.nextToken()).floatValue() - zAdapt.getDepotX())*5;
+          int y1 = 225+(int)(Float.valueOf(st.nextToken()).floatValue() - zAdapt.getDepotY())*5;
+          int x2 = 250+(int)(Float.valueOf(st.nextToken()).floatValue() - zAdapt.getDepotX())*5;
+          int y2 = 225+(int)(Float.valueOf(st.nextToken()).floatValue() - zAdapt.getDepotY())*5;
+          int p1 = Math.abs(x2-x1);
+          int p2 = Math.abs(y2-y1);
+          int s1 = 0;
+          int s2 = 0;
+
+          if((x2>x1 && y2<y1)||(x1>x2 && y2>y1)){
+                verticeArr[vNum].setType(ShapeControl.POS_SLOPE_LINE);
+
+          }
+          if((x2<x1 && y2<y1)||(x1<x2 && y2>y1)){
+                verticeArr[vNum].setType(ShapeControl.NEG_SLOPE_LINE);
+          }
+          if(x1==x2) {
+                verticeArr[vNum].setType(ShapeControl.VERT_LINE);
+                p1 = 9;
+          }
+          if(y1==y2){
+                verticeArr[vNum].setType(ShapeControl.HORZ_LINE);
+          }
+            verticeArr[vNum].setForeground(Color.blue);
+          s1 = min(x1,x2);
+          s2 = min(y1,y2);
+          this.getContentPane().add(verticeArr[vNum], new XYConstraints(s1, s2, p1,p2));
+          vNum++;
+        }
+    }
+    this.getContentPane().add(shapeControl1, new XYConstraints(250, 15, 9, 420));
+    this.getContentPane().add(shapeControl2, new XYConstraints(15, 225, 470, 9));
+    this.setSize(new Dimension(550, 500));
+    }catch(Exception exc){
+  }
+    this.setTitle("Graphic Display");
+
+  }
+}

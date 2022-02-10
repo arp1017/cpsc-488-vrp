@@ -1,0 +1,79 @@
+VRPTW File       : Problems/c101Short.txt
+No. of Shipments : 10
+No. of Depots    : 1
+Maximum capcity  : 200
+Maximum Distance : 1236
+Depot No. and vertices are:  1 40.0 50.0
+     Truck number:             0
+     Maximum duration:         1236.0
+     Maximum capacity:         200.0
+     Current Demand:           150.0     Current Duration:         58.325954
+     Current No. of Shipments: 0
+          Total number of cells: 12
+          Cell Index    :           0
+          Depot Number  :           1
+          X coordinate  :           40.0
+          Y coordinate  :           50.0
+          Maximum duration:         1236.0
+          Maximum capacity:         200.0
+
+          Cell Index    :           5
+          X coordinate  :           42.0
+          Y coordinate  :           65.0
+          demand:                   10.0
+
+          Cell Index    :           3
+          X coordinate  :           42.0
+          Y coordinate  :           66.0
+          demand:                   10.0
+
+          Cell Index    :           7
+          X coordinate  :           40.0
+          Y coordinate  :           66.0
+          demand:                   20.0
+
+          Cell Index    :           8
+          X coordinate  :           38.0
+          Y coordinate  :           68.0
+          demand:                   20.0
+
+          Cell Index    :           10
+          X coordinate  :           35.0
+          Y coordinate  :           66.0
+          demand:                   10.0
+
+          Cell Index    :           9
+          X coordinate  :           38.0
+          Y coordinate  :           70.0
+          demand:                   10.0
+
+          Cell Index    :           6
+          X coordinate  :           40.0
+          Y coordinate  :           69.0
+          demand:                   20.0
+
+          Cell Index    :           4
+          X coordinate  :           42.0
+          Y coordinate  :           68.0
+          demand:                   10.0
+
+          Cell Index    :           2
+          X coordinate  :           45.0
+          Y coordinate  :           70.0
+          demand:                   30.0
+
+          Cell Index    :           1
+          X coordinate  :           45.0
+          Y coordinate  :           68.0
+          demand:                   10.0
+
+          Cell Index    :           -1
+          Depot Number  :           1
+          X coordinate  :           40.0
+          Y coordinate  :           50.0
+          Maximum duration:         1236.0
+          Maximum capacity:         200.0
+
+
+
+

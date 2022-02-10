@@ -1,0 +1,18 @@
+package Hermes;
+
+/**
+ * Thread that will listen for connections on the shipper's port, and spawn
+ * other threads to handle the messages
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class ShipperMessageListener {
+
+  public ShipperMessageListener() {
+  }
+}

@@ -1,0 +1,29 @@
+package Hermes;
+
+import MSS8.Message;
+import MSS8.MessageTags;
+
+import java.net.*;
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class MasterMessageSender extends Thread{
+
+  Message message;
+  Socket socket;
+
+  public MasterMessageSender(Message m, Socket s) {
+    message = m;
+    socket = s;
+  }
+
+
+
+
+}

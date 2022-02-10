@@ -1,0 +1,644 @@
+package Hermes;
+
+import Zeus.Shipment;
+import Zeus.ShipmentLinkedList;
+
+import java.awt.*;
+import java.awt.event.*;
+
+import java.io.*;
+
+import java.net.*;
+
+import java.util.StringTokenizer;
+
+import javax.swing.*;
+
+
+/**
+ * Handles all communication between the shipper and the other agents.
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class ShipperAgentInterface extends JFrame implements MessageTags {
+    /**
+     * Server socket that will listen for incoming communication to the shipper.
+     */
+    ShipperMessageListener messageListener;
+    private String shipperCode;
+    private String shipperName;
+    private String shipperIP;
+    private String fileName; // name of problem file
+    private int shipperPort;
+    private ShipmentLinkedList mainShipments;
+    private Container shipContainer = new Container();
+    private JMenuBar jMenuBar = new JMenuBar();
+    private JMenu jmFile = new JMenu();
+    private JMenuItem jmiOpen = new JMenuItem();
+    private JMenuItem jmiExit = new JMenuItem();
+    private JLabel jlShipperCode = new JLabel();
+    private JTextField jtfShipperCode = new JTextField();
+    private JLabel jlShipperName = new JLabel();
+    private JTextField jtfShipperName = new JTextField();
+    private JButton jbSendShips = new JButton();
+    private GridBagLayout gridBagLayout1 = new GridBagLayout();
+    private GridBagLayout gridBagLayout2 = new GridBagLayout();
+    private JButton jbRegister = new JButton();
+
+    /**
+     * Constructor. Will create a new message listener on the specified port no
+     * @param IP  the IP address of the agent
+     */
+    public ShipperAgentInterface(String IP) {
+        mainShipments = new ShipmentLinkedList();
+        shipperIP = IP;
+
+        try {
+            jbInit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Opens a socket and sends a message to the Master Server for registration.
+     * Once the server is registered, the Master Server will send the registered
+     * port number back to the server.
+     * @param code  Identifying code for the server
+     * @param name  Name of the shipper
+     * @param IP  IP address of the server
+     * @return int  port number the server is registered under
+     */
+    private int registerShipperWithMasterServer(String code, String name,
+        String IP) {
+        int portNo = 0;
+        Socket socket = null;
+        BufferedReader in = null;
+        ThreadedClient tc;
+        Message addressMsg = new Message();
+        Message registerMsg = new Message();
+        Message portMsg;
+
+        //create a new register message to tell master server that this shipper
+        //is now active
+        registerMsg.setMessageType(RegisterTag);
+        registerMsg.addArgument(AgentTypeTag, ShipperMessage);
+        registerMsg.addArgument(CodeTag, jtfShipperCode.getText());
+        registerMsg.addArgument(NameTag, jtfShipperName.getText());
+
+        //create a message containing the address of this shipper for use by the
+        //master server
+        addressMsg.setMessageType(InetAddressTag);
+        addressMsg.addArgument(IPAddressTag, IP);
+        registerMsg.addArgument(addressMsg);
+
+        //register the shipper in the master database
+        //the message is to be sent to the master server
+        //create a client to send the message to the master server
+        try {
+          socket = new Socket(HermesGlobals.masterServerIP,
+                                     HermesGlobals.masterServerPortNo);
+            in = new BufferedReader(new InputStreamReader(
+                        socket.getInputStream()));
+            new ThreadedClient(registerMsg, socket);
+            portMsg = new Message(in.readLine());
+            portNo = Integer.parseInt(portMsg.getValue(PortNumberTag));
+        } catch (Exception ex) {
+            System.err.print("Shipper unable to register: " + ex);
+        } finally {
+            try {
+              socket.close();
+              in.close();
+            } catch (IOException ex) {
+                System.err.print(
+                    "Error closing socket for Shipper registration: " + ex);
+            }
+        }
+
+        jbRegister.setEnabled(false);
+
+        //print output about registering
+        System.out.println("Registered with Master Server, got port " + portNo);
+
+        return portNo;
+    }
+
+    /**
+     * Will send the customers to the master server. This has been updated to
+     * work with the new broadcast tag.
+     * @param shipperCode the unique identifier for this shipper
+     */
+    public void sendCustomersToMasterServer(String shipperCode) {
+        int noOfCustomers = mainShipments.getNoShipments();
+        Message sLine;
+        Message msg;
+        Shipment ship;
+
+        //make a new message for the InetAddress of this shipper
+        Message addr = new Message();
+        addr.setMessageType(MessageTags.InetAddressTag);
+        addr.addArgument(MessageTags.IPAddressTag, this.shipperIP);
+        addr.addArgument(MessageTags.PortNumberTag, "" + this.shipperPort);
+
+        try {
+            //create new start and end messages
+            Message startPointsMessage = new Message();
+            Message endPointsMessage = new Message();
+
+            //set the start and end points messages
+            startPointsMessage.setMessageType(StartSendPointsTag);
+            endPointsMessage.setMessageType(EndSendPointsTag);
+
+            //send the start points message
+            new ThreadedClient(startPointsMessage, HermesGlobals.masterServerIP,
+                    HermesGlobals.masterServerPortNo);
+
+            //loop through the customers, sending each to the master server
+            ship = mainShipments.getFirst();
+
+            for (int i = 0; i < noOfCustomers; i++) {
+                msg = new Message();
+
+                sLine = new Message();
+
+                sLine.setMessageType(CalculateTag);
+                sLine.addArgument(IndexTag, "" + ship.getShipNo());
+                sLine.addArgument(XCoordTag, "" + ship.getX());
+                sLine.addArgument(YCoordTag, "" + ship.getY());
+                sLine.addArgument(DemandTag, "" + ship.getDemand());
+                sLine.addArgument(EarlyTimeTag, "" + ship.getEarliestTime());
+                sLine.addArgument(LateTimeTag, "" + ship.getLatestTime());
+                sLine.addArgument(ServiceTimeTag, "" + ship.getServeTime());
+                //add the address of this shipper
+                sLine.addArgument(addr);
+
+                //make a message to broadcast to the carriers
+                msg.setMessageType(BroadcastTag);
+                msg.addArgument(DestinationTag, CarrierMessage);
+                //set the type of tag the embedded message is
+                msg.addArgument(MessageTags.PackagedMessageTag, MessageTags.CalculateTag);
+                //set the shipments' attributes to the message
+                msg.addArgument(sLine);
+
+                //send the message to the master server
+                new ThreadedClient(msg, HermesGlobals.masterServerIP,
+                                   HermesGlobals.masterServerPortNo);
+
+                System.out.println("Sending shipment " + i + " to master server");
+                ship = ship.next;
+            }
+            //create a timeout to wait so that the shipment threads can process
+            //first
+            Thread.sleep(1000);
+
+            //send the end points message
+            new ThreadedClient(endPointsMessage, HermesGlobals.masterServerIP,
+                               HermesGlobals.masterServerPortNo);
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    /**
+    * <p>Read in the data from the datafile and load it into the mainShipments
+    * ShipmentLinkedList using the tokenizer.</p>
+    * @param fileName String type of the filename consisting of the data
+    * @return boolean Return true if all successful, false for failure
+    */
+    private boolean readFileData(String fileName) {
+        /* read in the data from the listed file and load the information
+           into the availShipments linked list
+        */
+        int customerCount = 0; // number of shipments
+        int numDepots = 0; // number of depots available
+        int demand = 0; // maximum demand a truck may carry/demand of a customer
+        float distance = 0; // maximum distance a truck may travel
+        float x = 0; //x coordinate
+        float y = 0; //y coordinate
+        int earliestTime = 0; // earliest time to visit customer
+        int latestTime = 0; // latest time to visit customer
+        int servTime = 0; // time to service customer
+        int id = 0; // index of customer
+        float garbage; // to collect garbage values in data file
+        int index = 0; // switch structure index
+
+        //open the requested file
+        FileInputStream fis;
+        InputStreamReader isr;
+        BufferedReader br;
+
+        try {
+            fis = new FileInputStream(fileName);
+            isr = new InputStreamReader(fis);
+            br = new BufferedReader(isr);
+        } catch (Exception e) {
+            System.err.println("File is not present");
+
+            return false;
+        }
+
+        //String to hold the entire line read in
+        String readLn = null;
+
+        //StringTokenizer to obtain data in tokens
+        StringTokenizer st;
+
+        /* This reads in the first line that is used to determine the total
+           number of customers, max distance trucks travel, max capacity
+           and coordinates of the depot
+         */
+        try {
+            //read in the first line
+            readLn = br.readLine();
+
+            //tokenize the first line
+            st = new StringTokenizer(readLn);
+
+            // first line read are labels, read in second line to get values
+            if (st.nextToken().equalsIgnoreCase("x")) {
+                readLn = br.readLine();
+                st = new StringTokenizer(readLn);
+            } else {
+                st = new StringTokenizer(readLn);
+            }
+
+            //************************************************************************
+            while (st.hasMoreTokens()) { //while there are more tokens
+
+                switch (index) {
+                case 0:
+                    x = Float.parseFloat(st.nextToken());
+
+                    break;
+
+                case 1:
+                    y = Float.parseFloat(st.nextToken());
+
+                    break;
+
+                case 2:
+                    customerCount = Integer.parseInt(st.nextToken());
+
+                    break;
+
+                case 3:
+                    numDepots = Integer.parseInt(st.nextToken());
+
+                    break;
+                } //end switch
+
+                index += 1;
+            }
+
+            //end while
+        } catch (Exception e) {
+            System.out.println("Line could not be read in");
+        }
+
+        for (int k = 0; k < numDepots; k++) {
+            try {
+                //read in depot info
+                readLn = br.readLine();
+                st = new StringTokenizer(readLn);
+
+                if (st.nextToken().equalsIgnoreCase("DEPOT")) {
+                    readLn = br.readLine();
+                    st = new StringTokenizer(readLn);
+                } else {
+                    st = new StringTokenizer(readLn);
+                }
+
+                index = 0; // reinitialize index
+
+                while (st.hasMoreElements()) {
+                    switch (index) {
+                    case 0:
+                        x = Float.parseFloat(st.nextToken()); // x coordinate of depot
+
+                        break;
+
+                    case 1:
+                        y = Float.parseFloat(st.nextToken()); // y coordinate of depot
+
+                        break;
+
+                    case 2:
+                        id = Integer.parseInt(st.nextToken()); // index of depot
+
+                        break;
+
+                    default:
+                        break;
+                    }
+
+                    index++; // increment index to extract next value
+                }
+
+                // insert the depot information in the the linked list
+                mainShipments.insertDepotPosition(id, x, y);
+            } catch (Exception e) {
+                System.out.println("Reading the line");
+            }
+        }
+
+        //This section will get the customers and related information
+        try {
+            readLn = br.readLine();
+            st = new StringTokenizer(readLn);
+
+            if (st.nextToken().equalsIgnoreCase("x")) {
+                readLn = br.readLine();
+            }
+        } catch (IOException e) {
+            System.err.println("Reading the first shipment line: " + e);
+        }
+
+        /* The first for loop runtimes dependent upon how many lines are to be read
+           The next for loop reads the line into s.  Then the entire string in s
+           is processesd until the the entire line is processed and there are no
+           more characters are to be processed.
+        */
+
+        //customerCount includes the total number of customers
+        for (int k = 0; k < customerCount; k++) {
+            index = 0;
+            st = new StringTokenizer(readLn);
+
+            while (st.hasMoreElements()) {
+                try {
+                    switch (index) {
+                    case 0:
+                        x = Float.parseFloat(st.nextToken()); // x coordinate
+
+                        break;
+
+                    case 1:
+                        y = Float.parseFloat(st.nextToken()); // y coordinate
+
+                        break;
+
+                    case 2:
+                        demand = Integer.parseInt(st.nextToken()); // demand of customer
+
+                        break;
+
+                    case 3:
+                        id = Integer.parseInt(st.nextToken()); // index of customer
+
+                        break;
+
+                    case 4:
+                        garbage = Float.parseFloat(st.nextToken()); // unused value
+
+                        break;
+
+                    case 5:
+                        garbage = Float.parseFloat(st.nextToken()); // unused value
+
+                        break;
+
+                    case 6:
+                        earliestTime = Integer.parseInt(st.nextToken()); // earliest time to service customer
+
+                        break;
+
+                    case 7:
+                        latestTime = Integer.parseInt(st.nextToken()); // latest time to service customer
+
+                        break;
+
+                    case 8:
+                        servTime = Integer.parseInt(st.nextToken()); // time to service customer
+
+                        break;
+
+                    default:
+                        break;
+                    } //end switch
+
+                    index += 1;
+                } catch (NumberFormatException ex) {
+                    System.err.println("Error in shipment format: " + ex);
+                    ex.printStackTrace();
+                }
+            }
+
+            // end while
+            // insert the shipment information in the the linked list
+            mainShipments.insertShipment(x, y, demand, id, earliestTime,
+                latestTime, servTime);
+
+            // read the next line from the file
+            try {
+                if (index < customerCount) { // index is the index of the shipment, customerCount is the total number of shipements
+                    readLn = br.readLine();
+                }
+            } // try
+            catch (IOException e) {
+                System.err.println("Reading in the next shipment line: " + e);
+            }
+
+            // catch
+        }
+
+        //end for - customerCount
+        try {
+            //read in Max distance info
+            readLn = br.readLine();
+            st = new StringTokenizer(readLn);
+
+            if (st.nextToken().equalsIgnoreCase("Total")) {
+                readLn = br.readLine();
+                st = new StringTokenizer(readLn);
+            } else {
+                st = new StringTokenizer(readLn);
+            }
+
+            distance = Integer.parseInt(st.nextToken());
+        } catch (IOException ex) {
+            System.err.println("Error reading file for Max Distance: " + ex);
+        }
+
+        try {
+            //read in Max Vehicle Capacity info
+            readLn = br.readLine();
+            st = new StringTokenizer(readLn);
+
+            if (st.nextToken().equalsIgnoreCase("Vehicle")) {
+                readLn = br.readLine();
+                st = new StringTokenizer(readLn);
+            } else {
+                st = new StringTokenizer(readLn);
+            }
+
+            demand = Integer.parseInt(st.nextToken());
+        } catch (IOException ex) {
+            System.err.println("Error reading file for Max Capacity: " + ex);
+        }
+
+        //Put the problem information into the ProblemInfo class. This is used
+        //to identify the file type and the information that was read in from
+        //the input file. When printing the output this information can be
+        //used to associate with the date file that was read in.
+        //    ProblemInfo.fileName = fileName; //name of the file being read in
+        //    ProblemInfo.noOfShips = customerCount; //number of shipments
+        //    ProblemInfo.depotX = x; // x coordinate of the depot
+        //    ProblemInfo.depotY = y; // y coordinate of the depot
+        if (demand == 0) { //if there is no maximum capacity, set it to a very large number
+            demand = 999999999;
+        }
+
+        if (distance == 0) { //if there is no maximum distance, set it to a very large number
+            distance = 999999999;
+        }
+
+        //    ProblemInfo.maxCapacity = demand; //maximum capacity of a vehicle
+        //    ProblemInfo.maxDistance = distance; //maximum distance of a vehicle
+        //place the number of depots and number of shipments in the linked list instance
+        mainShipments.noShipments = customerCount;
+        mainShipments.noDepots = numDepots;
+        mainShipments.setMaxCapacity(demand);
+        mainShipments.setMaxDuration(distance);
+
+        System.out.println("Read In file correctly with " + customerCount + " customers");
+        Shipment s = mainShipments.first;
+        while(s != null){
+          System.out.println(s.shipNo + " " + s.vertexX + " " + s.vertexY);
+        }
+
+        return true;
+    }
+
+    /**
+     * Frame initialization method
+     * @throws Exception  frame unable to initialize
+     */
+    private void jbInit() throws Exception {
+        this.setTitle("Shipper Agent");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.getContentPane().setLayout(gridBagLayout1);
+        jmFile.setMnemonic('F');
+        jmFile.setText("File");
+        jmiOpen.setText("Open");
+        jmiOpen.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    jmiOpen_actionPerformed(e);
+                }
+            });
+        jmiExit.setText("Exit");
+        jmiExit.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    jmiExit_actionPerformed(e);
+                }
+            });
+        jlShipperCode.setText("Shipper Code");
+        jtfShipperCode.setToolTipText("ID code associated with Shipper");
+        jtfShipperCode.setText("amd");
+        jtfShipperCode.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    jtfShipperCode_actionPerformed(e);
+                }
+            });
+        jlShipperName.setText("Shipper Name");
+        jtfShipperName.setText("American Micro Devices");
+        jtfShipperName.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    jtfShipperName_actionPerformed(e);
+                }
+            });
+        jbSendShips.setEnabled(false);
+        jbSendShips.setText("Send Shipments");
+        jbSendShips.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    jbSendShips_actionPerformed(e);
+                }
+            });
+        this.setJMenuBar(jMenuBar);
+        jbRegister.setActionCommand("");
+        jbRegister.setText("Register");
+        jbRegister.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    jbRegister_actionPerformed(e);
+                }
+            });
+        jMenuBar.add(jmFile);
+        jmFile.add(jmiOpen);
+        jmFile.add(jmiExit);
+        this.getContentPane().add(jlShipperCode,
+            new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0,
+                GridBagConstraints.WEST, GridBagConstraints.NONE,
+                new Insets(27, 9, 0, 0), 0, 0));
+        this.getContentPane().add(jtfShipperCode,
+            new GridBagConstraints(0, 1, 1, 1, 1.0, 0.0,
+                GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL,
+                new Insets(0, 9, 0, 0), 48, 0));
+        this.getContentPane().add(jlShipperName,
+            new GridBagConstraints(1, 0, 2, 1, 0.0, 0.0,
+                GridBagConstraints.WEST, GridBagConstraints.NONE,
+                new Insets(27, 26, 0, 128), 6, 0));
+        this.getContentPane().add(jbSendShips,
+            new GridBagConstraints(0, 2, 2, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.NONE,
+                new Insets(34, 9, 28, 0), 0, 0));
+        this.getContentPane().add(jbRegister,
+            new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.NONE,
+                new Insets(0, 0, 0, 0), 0, 0));
+        this.getContentPane().add(jtfShipperName,
+            new GridBagConstraints(1, 1, 2, 1, 1.0, 0.0,
+                GridBagConstraints.NORTHWEST, GridBagConstraints.HORIZONTAL,
+                new Insets(1, 23, 5, 25), 57, 0));
+
+        this.setSize(403, 253);
+        this.setVisible(true);
+    }
+
+    void jmiOpen_actionPerformed(ActionEvent e) {
+        //      System.out.println("Opening file chooser");
+        JFileChooser fileChooser = new JFileChooser(".");
+
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            if (readFileData(fileChooser.getSelectedFile().getPath())) {
+                jbSendShips.setEnabled(true);
+
+                //              System.out.println("Entered button enabled");
+            }
+        }
+    }
+
+    void jmiExit_actionPerformed(ActionEvent e) {
+        System.out.println("Exiting Shipper Agent.");
+        System.exit(0);
+    }
+
+    void jbSendShips_actionPerformed(ActionEvent e) {
+        sendCustomersToMasterServer(shipperCode);
+    }
+
+    void jtfShipperCode_actionPerformed(ActionEvent e) {
+        //    System.out.println(shipperCode);
+        shipperCode = jtfShipperCode.getText();
+
+        //    System.out.println(shipperCode);
+    }
+
+    void jtfShipperName_actionPerformed(ActionEvent e) {
+        //    System.out.println(shipperName);
+        shipperName = jtfShipperName.getText();
+
+        //    System.out.println(shipperName);
+    }
+
+    void jbRegister_actionPerformed(ActionEvent e) {
+        jtfShipperCode.setEditable(false);
+        jtfShipperName.setEditable(false);
+        shipperPort = registerShipperWithMasterServer(shipperCode, shipperName,
+                shipperIP);
+        messageListener = new ShipperMessageListener(shipperPort);
+    }
+}

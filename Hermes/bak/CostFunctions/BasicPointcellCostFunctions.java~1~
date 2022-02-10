@@ -1,0 +1,132 @@
+package CostFunctions;
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class BasicPointcellCostFunctions implements CostFunctions {
+
+  public BasicPointcellCostFunctions() {
+  }
+  public double getTotalCost(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalCost() not yet implemented.");
+  }
+  public double getMedianTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getMedianTime() not yet implemented.");
+  }
+  public double getAngle(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getAngle() not yet implemented.");
+  }
+  public double getTotalNonEmptyNodes(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalNonEmptyNodes() not yet implemented.");
+  }
+  public double getTotalNodes(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalNodes() not yet implemented.");
+  }
+  public double getTotalDemand(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalDemand() not yet implemented.");
+  }
+  public double getTotalDistance(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalDistance() not yet implemented.");
+  }
+  public double getTotalTravelTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalTravelTime() not yet implemented.");
+  }
+  public double getTotalExcessTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalExcessTime() not yet implemented.");
+  }
+  public double getTotalWaitTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalWaitTime() not yet implemented.");
+  }
+  public double getTotalServiceTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalServiceTime() not yet implemented.");
+  }
+  public double getTotalTardinessTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalTardinessTime() not yet implemented.");
+  }
+  public double getTotalOverload(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method getTotalOverload() not yet implemented.");
+  }
+  public void setTotalCost(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalCost() not yet implemented.");
+  }
+  public void setTotalNonEmptyNodes(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalNonEmptyNodes() not yet implemented.");
+  }
+  public void setTotalDemand(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalDemand() not yet implemented.");
+  }
+  public void setTotalDistance(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalDistance() not yet implemented.");
+  }
+  public void setTotalTravelTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalTravelTime() not yet implemented.");
+  }
+  public void setTotalExcessTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalExcessTime() not yet implemented.");
+  }
+  public void setTotalServiceTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalServiceTime() not yet implemented.");
+  }
+  public void setTotalWaitTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalWaitTime() not yet implemented.");
+  }
+  public void setTotalTardinessTime(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalTardinessTime() not yet implemented.");
+  }
+  public void setTotalOverload(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setTotalOverload() not yet implemented.");
+  }
+  public void setWeights(int caseNo) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method setWeights() not yet implemented.");
+  }
+  public void swapMNchains(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method swapMNchains() not yet implemented.");
+  }
+  public boolean calcCloseness(Object o, Object p, Object q, int x) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method calcCloseness() not yet implemented.");
+  }
+  public double calculateOptimizedCost(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method calculateOptimizedCost() not yet implemented.");
+  }
+  public double globalCalculateOptimizedCost(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method globalCalculateOptimizedCost() not yet implemented.");
+  }
+  public void calculateTotalsStats(Object o) {
+    /**@todo Implement this CostFunctions.CostFunctions method*/
+    throw new java.lang.UnsupportedOperationException("Method calculateTotalsStats() not yet implemented.");
+  }
+}

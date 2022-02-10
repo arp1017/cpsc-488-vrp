@@ -1,0 +1,133 @@
+package Hermes;
+
+import java.io.*;
+
+import java.lang.*;
+
+import java.text.*;
+
+import java.util.*;
+
+
+/**
+ * <p>Title: LogWriter.java </p>
+ * <p>Description: LogWriter is the thread that writes into the log file.</p>
+ * @author  Matlack
+ * @version 1.0
+ */
+public class LogWriter extends Thread {
+    private PrintWriter out = null;
+    private LogQueue queue = new LogQueue();
+    private File file = null;
+
+    //date portion of the name of the log file
+    private String dateFile = "";
+
+    // name of the log file without appended date
+    private String logFileName = "";
+
+    /**
+    * LogWriter() - constructor.
+    */
+    public LogWriter() {
+    }
+
+    /**
+    * LogWriter constructor - creates the thread.
+    *
+    * @param log - name of the log file to write to
+    * @exception java.lang.IOException
+    */
+    public LogWriter(String log) {
+        try {
+            logFileName = log;
+
+            Calendar now = Calendar.getInstance(Locale.US);
+
+            StringTokenizer st = new StringTokenizer(logFileName, ".");
+            String name = st.nextToken();
+            String ext = st.nextToken();
+            int month = now.get(Calendar.MONTH);
+            int date = now.get(Calendar.DAY_OF_MONTH);
+            int year = now.get(Calendar.YEAR);
+            int hour = now.get(Calendar.HOUR);
+            int min = now.get(Calendar.MINUTE);
+            String monthS = "";
+            String dateS = "";
+            String yearS = "" + year;
+            String hourS = "";
+            String minS = "";
+
+            if (month < 10) {
+                monthS = "0" + month;
+            } else {
+                monthS = "" + month;
+            }
+
+            if (date < 10) {
+                dateS = "0" + date;
+            } else {
+                dateS = "" + date;
+            }
+
+            if (hour < 10) {
+                hourS = "0" + hour;
+            } else {
+                hourS = "" + hour;
+            }
+
+            if (min < 10) {
+                minS = "0" + min;
+            } else {
+                minS = "" + min;
+            }
+
+            dateFile = monthS + dateS + yearS + "_" + hourS + minS;
+            file = new File(name + "" + dateFile + "." + ext);
+            out = new PrintWriter(new FileOutputStream(file), true);
+            start();
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
+    }
+
+    /**
+    *writeLog - puts the message into the queue.
+    *
+    * @param msg - transaction message
+    *
+    */
+    public void writeLog(String msg) {
+        queue.append(msg);
+    }
+
+    /**
+    * writeMsg  - writes into the log file.
+    *
+    */
+    private synchronized void writeMsg() {
+        try {
+            String msg = queue.getNextMsg();
+            out.println(msg);
+            out.flush();
+        } catch (Exception io) {
+        }
+    }
+
+    /**
+    * run - run method of the thread.
+    *
+    */
+    public void run() {
+        while (true) {
+            if (queue.isAvailable()) {
+                writeMsg();
+            } else {
+                try {
+                    sleep(1000);
+                } catch (InterruptedException ie) {
+                }
+            }
+        }
+    }
+}

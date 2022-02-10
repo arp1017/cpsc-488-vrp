@@ -1,0 +1,149 @@
+package Hermes;
+
+import java.sql.*;
+import java.util.*;
+/**
+ * Provides an interface to the Registered shipper and carriers database.
+ * <p>Title: </p>
+ * <p>Description: Provides an interface to the Registered shipper and carriers
+ * database.</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class RegisterShipperCarrierDatabaseInterface extends DatabaseInterface{
+
+  /**
+   * Constructor, will create a JDBC:ODBC connection to the RegisterShipCarr.mdb
+   * database.
+   */
+  public RegisterShipperCarrierDatabaseInterface(){
+    super(DatabaseInterface.REGISTERSHIPCAR);
+
+    //delete all the lingering carriers and shippers that may be in the database
+    String sql = "Delete * FROM RegCarriers;";
+    super.executeSQL(sql);
+    sql = "Delete * From RegShippers;";
+    super.executeSQL(sql);
+  }
+
+  /**
+   * Will add a carrier to the database
+   * @param code carrier code
+   * @param name carrier name
+   * @param ip   carrier ip
+   * @param port carrier port
+   */
+  public void addCarrier(String code, String name, String ip, String port){
+    String query = "INSERT INTO RegCarriers (CODE,NAME,IPAddress,PortNo) " +
+                       "VALUES ('" + code +"', '" + name +"', '" + ip +"', '" + port +
+                       "');";
+    super.executeSQL( query );
+  }
+
+  /**
+   * Will add a shipper to the database
+   * @param code shipper code
+   * @param name shipper name
+   * @param ip   shipper ip
+   * @param port shipper port
+   */
+  public void addShipper(String code, String name, String ip, String port){
+    String query = "INSERT INTO RegShippers (CODE,NAME,IPAddress,PortNo) " +
+                       "VALUES ('" + code +"', '" + name +"', '" + ip +"', '" + port +
+                       "');";
+    super.executeSQL( query );
+  }
+
+  /**
+   * Will remove a carrier from the database
+   * @param ip   carrier ip
+   * @param port carrier port
+   */
+  public void removeCarrier(String ip, String port){
+    super.executeSQL("DELETE FROM RegCarriers WHERE IPAddress=" + ip +
+                        " AND PortNo=" + port +";");
+  }
+
+  /**
+   * Will remove a shipper from the database
+   * @param ip   shipper ip
+   * @param port shipper port
+   */
+  public void removeShipper(String ip, String port){
+    super.executeSQL("DELETE FROM RegShippers WHERE IPAddress=\"" + ip +
+                        "\" AND PortNo=\"" + port +"\";");
+  }
+
+  /**
+   * Will get all registered ports on an ip address
+   * @param ip ip address to query
+   * @return array of ports used
+   */
+  public int[] getUsedPorts(String ip){
+    ResultSet res1 = null, res2 = null;
+    String q1 = "SELECT PortNo FROM RegShippers " +
+                                "WHERE IPAddress = '" + ip + "';";
+    res1 = super.executeSQL(q1);
+    String q2 ="SELECT PortNo FROM RegCarriers " +
+                                "WHERE IPAddress = '" + ip + "';";
+    res2 = super.executeSQL(q2);
+
+    //System.out.println(q1);
+    //System.out.println(q2);
+    Vector v = new Vector();
+    try{
+      //if there is a set returned
+      if(res1 == null){
+        //get the next b/c ResultSet initially points before first row
+       while(res1.next()){
+          //parse the res set
+          v.add(res1.getString("PortNo"));
+        }
+      }
+
+      //if there is a set returned
+      if(res2 != null){
+        while(res2.next()){
+          //parse the res set
+          v.add(res2.getString("PortNo"));
+        }
+      }
+    }catch(SQLException sqle){
+      sqle.printStackTrace();
+    }
+
+    //change the vector into an int array
+    int[] ports = new int[v.size()];
+
+    for(int i=0; i<v.size(); i++){
+      String s = (String) v.elementAt(i);
+      ports[i] = Integer.parseInt(s);
+    }
+
+    //return the array
+    return ports;
+  }
+
+  /**
+   * Will query the database for all the carriers returning messages containing
+   * their IPs and port numbers.
+   * @return
+   */
+  public Message[] getCarrierIPandPort(){
+
+    return new Message[0];
+  }
+
+  /**
+   * Will query the database for all the shippers returning messages containing
+   * their IPs and port numbers
+   * @return message with ips and ports
+   */
+  public Message[] getShipperIPandPort(){
+
+    return new Message[0];
+  }
+}

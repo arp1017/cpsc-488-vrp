@@ -1,0 +1,56 @@
+package Hermes;
+
+import Zeus.*;
+
+import java.net.*;
+
+
+/**
+ * <p>Title: CarrierMessageListener</p>
+ * <p>Description: this threads listen for conncetions and spawns a new thread(a socket) when a new connection
+ * comes in.</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class CarrierMessageListener extends Thread {
+    /**
+    * socket that will listen for connections and spawn new sockets once new
+    * connections are made
+    */
+    private ServerSocket server;
+    private Zeus z;
+
+    /**
+    * Constructor, will make a server socket and run the thread to listen on it.
+    * @param portNo port to listen to.
+    * @param zeus  instance of zeus scheduling system for this carrier
+    */
+    public CarrierMessageListener(int portNo, Zeus zeus) {
+        try {
+            z = zeus;
+            server = new ServerSocket(portNo);
+            start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+    * The message listener thread's run method. Will listen for connections and
+    * spawn new threads once the connections are made.
+    */
+    public void run() {
+        try {
+            Socket incoming;
+
+            //once a new connection is made assign the socket to incoming
+            incoming = server.accept();
+
+            new CarrierMessageHandler(incoming, z);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

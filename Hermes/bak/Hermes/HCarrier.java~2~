@@ -1,0 +1,60 @@
+package Hermes;
+
+import java.net.InetAddress;
+
+
+/**
+ * <p>Title: HShipper</p>
+ * <p>Description: Carrier Agent. Has an instance of zeus in it.</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class HCarrier {
+    private String carrierCode;
+    private String carrierIP;
+    private int carrierPort;
+    private CarrierAgentInterface CarInterface;
+
+    /**
+    * Constructor sstarts a Shipper Agent and puts an instance of zeus into it
+    * @param code identifier for carrier
+    * @param IP ip address of string
+    */
+    public HCarrier(String code, String IP) {
+        carrierCode = code;
+        carrierIP = IP;
+        CarInterface = new CarrierAgentInterface();
+    }
+
+    public String getIP() {
+        return carrierIP;
+    }
+
+    public int getPort() {
+        return carrierPort;
+    }
+
+    public static void main(String[] args) {
+        try {
+            //if the user has not used the proper amount of cmd line params throw
+            //an exception
+            if (args.length != 1) {
+                throw new Exception();
+            }
+
+            //carrier code is entered through the commandline by the user but the IP
+            //is automatically generated
+            new HCarrier(args[0],
+                InetAddress.getLocalHost().toString().substring(InetAddress.getLocalHost()
+                                                                           .toString()
+                                                                           .indexOf("/") +
+                    1));
+        } catch (Exception nfe) {
+            //user made a mistake with the command line params. Output a helpful msg
+            System.err.println("args.length= " + args.length);
+            System.err.println("Error -Usage- java HCarrier <Carrier code>");
+        }
+    }
+}

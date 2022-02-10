@@ -1,0 +1,23 @@
+package Hermes;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class MessageTest extends TestCase {
+    public MessageTest() {
+    }
+
+    public static void main(String[] args) {
+        MessageTest messageTest1 = new MessageTest();
+    }
+}

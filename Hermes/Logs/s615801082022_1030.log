@@ -1,0 +1,501 @@
+Sending shipments from 192.168.56.1:6158
+Sending shipment 1 to master server
+Processing message: <InsertCost><Cost>34.0</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  1 by 192.168.56.1:11258 is $34.0
+Shipment 1 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>1</Index></Confirm>
+Sending shipment 2 to master server
+Processing message: <InsertCost><Cost>37.027756</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  2 by 192.168.56.1:11258 is $37.027756
+Shipment 2 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>2</Index></Confirm>
+Sending shipment 3 to master server
+Processing message: <InsertCost><Cost>42.973663</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>3</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  3 by 192.168.56.1:11258 is $42.973663
+Shipment 3 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>3</Index></Confirm>
+Sending shipment 4 to master server
+Processing message: <InsertCost><Cost>20881.303</Cost><AfterIndex>1</AfterIndex><TruckNumber>0</TruckNumber><Index>4</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  4 by 192.168.56.1:11258 is $20881.303
+Shipment 4 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>4</Index></Confirm>
+Sending shipment 5 to master server
+Processing message: <InsertCost><Cost>17403.977</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>5</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  5 by 192.168.56.1:11258 is $17403.977
+Shipment 5 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>5</Index></Confirm>
+Sending shipment 6 to master server
+Processing message: <InsertCost><Cost>13105.405</Cost><AfterIndex>1</AfterIndex><TruckNumber>0</TruckNumber><Index>6</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  6 by 192.168.56.1:11258 is $13105.405
+Shipment 6 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>6</Index></Confirm>
+Sending shipment 7 to master server
+Processing message: <InsertCost><Cost>8566.754</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>7</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  7 by 192.168.56.1:11258 is $8566.754
+Shipment 7 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>7</Index></Confirm>
+Sending shipment 8 to master server
+Processing message: <InsertCost><Cost>3459.1572</Cost><AfterIndex>7</AfterIndex><TruckNumber>0</TruckNumber><Index>8</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  8 by 192.168.56.1:11258 is $3459.1572
+Shipment 8 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>8</Index></Confirm>
+Sending shipment 9 to master server
+Processing message: <InsertCost><Cost>27987.318</Cost><AfterIndex>0</AfterIndex><TruckNumber>1</TruckNumber><Index>9</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  9 by 192.168.56.1:11258 is $27987.318
+Shipment 9 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>9</Index></Confirm>
+Sending shipment 10 to master server
+Processing message: <InsertCost><Cost>17153.799</Cost><AfterIndex>0</AfterIndex><TruckNumber>1</TruckNumber><Index>10</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  10 by 192.168.56.1:11258 is $17153.799
+Shipment 10 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>10</Index></Confirm>
+Sending shipment 11 to master server
+Processing message: <InsertCost><Cost>23154.807</Cost><AfterIndex>0</AfterIndex><TruckNumber>1</TruckNumber><Index>11</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  11 by 192.168.56.1:11258 is $23154.807
+Shipment 11 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>11</Index></Confirm>
+Sending shipment 12 to master server
+Processing message: <InsertCost><Cost>142.83095</Cost><AfterIndex>4</AfterIndex><TruckNumber>0</TruckNumber><Index>12</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  12 by 192.168.56.1:11258 is $142.83095
+Shipment 12 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>12</Index></Confirm>
+Sending shipment 13 to master server
+Processing message: <InsertCost><Cost>188.49835</Cost><AfterIndex>0</AfterIndex><TruckNumber>1</TruckNumber><Index>13</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  13 by 192.168.56.1:11258 is $188.49835
+Shipment 13 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>13</Index></Confirm>
+Sending shipment 14 to master server
+Processing message: <InsertCost><Cost>41257.953</Cost><AfterIndex>13</AfterIndex><TruckNumber>1</TruckNumber><Index>14</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  14 by 192.168.56.1:11258 is $41257.953
+Shipment 14 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>14</Index></Confirm>
+Sending shipment 15 to master server
+Processing message: <InsertCost><Cost>39625.504</Cost><AfterIndex>0</AfterIndex><TruckNumber>2</TruckNumber><Index>15</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  15 by 192.168.56.1:11258 is $39625.504
+Shipment 15 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>15</Index></Confirm>
+Sending shipment 16 to master server
+Processing message: <InsertCost><Cost>47777.99</Cost><AfterIndex>0</AfterIndex><TruckNumber>2</TruckNumber><Index>16</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  16 by 192.168.56.1:11258 is $47777.99
+Shipment 16 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>16</Index></Confirm>
+Sending shipment 17 to master server
+Processing message: <InsertCost><Cost>2267.3704</Cost><AfterIndex>13</AfterIndex><TruckNumber>2</TruckNumber><Index>17</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  17 by 192.168.56.1:11258 is $2267.3704
+Shipment 17 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>17</Index></Confirm>
+Sending shipment 18 to master server
+Processing message: <InsertCost><Cost>1988.0646</Cost><AfterIndex>17</AfterIndex><TruckNumber>2</TruckNumber><Index>18</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  18 by 192.168.56.1:11258 is $1988.0646
+Shipment 18 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>18</Index></Confirm>
+Sending shipment 19 to master server
+Processing message: <InsertCost><Cost>1994.8748</Cost><AfterIndex>18</AfterIndex><TruckNumber>2</TruckNumber><Index>19</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  19 by 192.168.56.1:11258 is $1994.8748
+Shipment 19 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>19</Index></Confirm>
+Sending shipment 20 to master server
+Processing message: <InsertCost><Cost>2058.1204</Cost><AfterIndex>0</AfterIndex><TruckNumber>3</TruckNumber><Index>20</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  20 by 192.168.56.1:11258 is $2058.1204
+Shipment 20 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>20</Index></Confirm>
+Sending shipment 21 to master server
+Processing message: <InsertCost><Cost>2089.471</Cost><AfterIndex>4</AfterIndex><TruckNumber>0</TruckNumber><Index>21</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  21 by 192.168.56.1:11258 is $2089.471
+Shipment 21 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>21</Index></Confirm>
+Sending shipment 22 to master server
+Processing message: <InsertCost><Cost>2092.7312</Cost><AfterIndex>4</AfterIndex><TruckNumber>0</TruckNumber><Index>22</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  22 by 192.168.56.1:11258 is $2092.7312
+Shipment 22 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>22</Index></Confirm>
+Sending shipment 23 to master server
+Processing message: <InsertCost><Cost>9297.22</Cost><AfterIndex>14</AfterIndex><TruckNumber>1</TruckNumber><Index>23</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  23 by 192.168.56.1:11258 is $9297.22
+Shipment 23 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>23</Index></Confirm>
+Sending shipment 24 to master server
+Processing message: <InsertCost><Cost>12629.107</Cost><AfterIndex>0</AfterIndex><TruckNumber>3</TruckNumber><Index>24</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  24 by 192.168.56.1:11258 is $12629.107
+Shipment 24 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>24</Index></Confirm>
+Sending shipment 25 to master server
+Processing message: <InsertCost><Cost>12598.028</Cost><AfterIndex>0</AfterIndex><TruckNumber>3</TruckNumber><Index>25</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  25 by 192.168.56.1:11258 is $12598.028
+Shipment 25 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>25</Index></Confirm>
+Sending shipment 26 to master server
+Processing message: <InsertCost><Cost>13747.527</Cost><AfterIndex>4</AfterIndex><TruckNumber>0</TruckNumber><Index>26</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  26 by 192.168.56.1:11258 is $13747.527
+Shipment 26 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>26</Index></Confirm>
+Sending shipment 27 to master server
+Processing message: <InsertCost><Cost>9343.235</Cost><AfterIndex>25</AfterIndex><TruckNumber>3</TruckNumber><Index>27</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  27 by 192.168.56.1:11258 is $9343.235
+Shipment 27 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>27</Index></Confirm>
+Sending shipment 28 to master server
+Processing message: <InsertCost><Cost>5441.225</Cost><AfterIndex>15</AfterIndex><TruckNumber>1</TruckNumber><Index>28</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  28 by 192.168.56.1:11258 is $5441.225
+Shipment 28 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>28</Index></Confirm>
+Sending shipment 29 to master server
+Processing message: <InsertCost><Cost>30316.059</Cost><AfterIndex>0</AfterIndex><TruckNumber>4</TruckNumber><Index>29</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  29 by 192.168.56.1:11258 is $30316.059
+Shipment 29 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>29</Index></Confirm>
+Sending shipment 30 to master server
+Processing message: <InsertCost><Cost>33910.812</Cost><AfterIndex>25</AfterIndex><TruckNumber>3</TruckNumber><Index>30</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  30 by 192.168.56.1:11258 is $33910.812
+Shipment 30 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>30</Index></Confirm>
+Sending shipment 31 to master server
+Processing message: <InsertCost><Cost>17294.44</Cost><AfterIndex>1</AfterIndex><TruckNumber>0</TruckNumber><Index>31</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  31 by 192.168.56.1:11258 is $17294.44
+Shipment 31 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>31</Index></Confirm>
+Sending shipment 32 to master server
+Processing message: <InsertCost><Cost>8421.636</Cost><AfterIndex>0</AfterIndex><TruckNumber>4</TruckNumber><Index>32</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  32 by 192.168.56.1:11258 is $8421.636
+Shipment 32 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>32</Index></Confirm>
+Sending shipment 33 to master server
+Processing message: <InsertCost><Cost>12959.784</Cost><AfterIndex>0</AfterIndex><TruckNumber>4</TruckNumber><Index>33</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  33 by 192.168.56.1:11258 is $12959.784
+Shipment 33 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>33</Index></Confirm>
+Sending shipment 34 to master server
+Processing message: <InsertCost><Cost>17583.246</Cost><AfterIndex>31</AfterIndex><TruckNumber>0</TruckNumber><Index>34</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  34 by 192.168.56.1:11258 is $17583.246
+Shipment 34 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>34</Index></Confirm>
+Sending shipment 35 to master server
+Processing message: <InsertCost><Cost>24390.213</Cost><AfterIndex>25</AfterIndex><TruckNumber>3</TruckNumber><Index>35</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  35 by 192.168.56.1:11258 is $24390.213
+Shipment 35 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>35</Index></Confirm>
+Sending shipment 36 to master server
+Processing message: <InsertCost><Cost>11233.644</Cost><AfterIndex>28</AfterIndex><TruckNumber>1</TruckNumber><Index>36</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  36 by 192.168.56.1:11258 is $11233.644
+Shipment 36 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>36</Index></Confirm>
+Sending shipment 37 to master server
+Processing message: <InsertCost><Cost>15201.848</Cost><AfterIndex>36</AfterIndex><TruckNumber>1</TruckNumber><Index>37</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  37 by 192.168.56.1:11258 is $15201.848
+Shipment 37 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>37</Index></Confirm>
+Sending shipment 38 to master server
+Processing message: <InsertCost><Cost>21156.635</Cost><AfterIndex>35</AfterIndex><TruckNumber>2</TruckNumber><Index>38</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  38 by 192.168.56.1:11258 is $21156.635
+Shipment 38 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>38</Index></Confirm>
+Sending shipment 39 to master server
+Processing message: <InsertCost><Cost>10383.143</Cost><AfterIndex>38</AfterIndex><TruckNumber>2</TruckNumber><Index>39</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  39 by 192.168.56.1:11258 is $10383.143
+Shipment 39 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>39</Index></Confirm>
+Sending shipment 40 to master server
+Processing message: <InsertCost><Cost>28551.273</Cost><AfterIndex>0</AfterIndex><TruckNumber>5</TruckNumber><Index>40</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  40 by 192.168.56.1:11258 is $28551.273
+Shipment 40 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>40</Index></Confirm>
+Sending shipment 41 to master server
+Processing message: <InsertCost><Cost>31549.637</Cost><AfterIndex>0</AfterIndex><TruckNumber>5</TruckNumber><Index>41</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  41 by 192.168.56.1:11258 is $31549.637
+Shipment 41 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>41</Index></Confirm>
+Sending shipment 42 to master server
+Processing message: <InsertCost><Cost>18208.227</Cost><AfterIndex>0</AfterIndex><TruckNumber>6</TruckNumber><Index>42</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  42 by 192.168.56.1:11258 is $18208.227
+Shipment 42 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>42</Index></Confirm>
+Sending shipment 43 to master server
+Processing message: <InsertCost><Cost>24881.418</Cost><AfterIndex>0</AfterIndex><TruckNumber>7</TruckNumber><Index>43</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  43 by 192.168.56.1:11258 is $24881.418
+Shipment 43 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>43</Index></Confirm>
+Sending shipment 44 to master server
+Processing message: <InsertCost><Cost>14360.485</Cost><AfterIndex>40</AfterIndex><TruckNumber>5</TruckNumber><Index>44</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  44 by 192.168.56.1:11258 is $14360.485
+Shipment 44 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>44</Index></Confirm>
+Sending shipment 45 to master server
+Processing message: <InsertCost><Cost>20372.855</Cost><AfterIndex>15</AfterIndex><TruckNumber>3</TruckNumber><Index>45</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  45 by 192.168.56.1:11258 is $20372.855
+Shipment 45 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>45</Index></Confirm>
+Sending shipment 46 to master server
+Processing message: <InsertCost><Cost>18880.918</Cost><AfterIndex>44</AfterIndex><TruckNumber>5</TruckNumber><Index>46</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  46 by 192.168.56.1:11258 is $18880.918
+Shipment 46 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>46</Index></Confirm>
+Sending shipment 47 to master server
+Processing message: <InsertCost><Cost>72216.67</Cost><AfterIndex>36</AfterIndex><TruckNumber>1</TruckNumber><Index>47</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  47 by 192.168.56.1:11258 is $72216.67
+Shipment 47 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>47</Index></Confirm>
+Sending shipment 48 to master server
+Processing message: <InsertCost><Cost>26942.457</Cost><AfterIndex>22</AfterIndex><TruckNumber>0</TruckNumber><Index>48</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  48 by 192.168.56.1:11258 is $26942.457
+Shipment 48 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>48</Index></Confirm>
+Sending shipment 49 to master server
+Processing message: <InsertCost><Cost>112139.11</Cost><AfterIndex>45</AfterIndex><TruckNumber>3</TruckNumber><Index>49</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  49 by 192.168.56.1:11258 is $112139.11
+Shipment 49 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>49</Index></Confirm>
+Sending shipment 50 to master server
+Processing message: <InsertCost><Cost>22770.21</Cost><AfterIndex>14</AfterIndex><TruckNumber>2</TruckNumber><Index>50</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  50 by 192.168.56.1:11258 is $22770.21
+Shipment 50 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>50</Index></Confirm>
+Sending shipment 51 to master server
+Processing message: <InsertCost><Cost>40153.297</Cost><AfterIndex>46</AfterIndex><TruckNumber>5</TruckNumber><Index>51</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  51 by 192.168.56.1:11258 is $40153.297
+Shipment 51 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>51</Index></Confirm>
+Sending shipment 52 to master server
+Processing message: <InsertCost><Cost>34400.926</Cost><AfterIndex>4</AfterIndex><TruckNumber>3</TruckNumber><Index>52</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  52 by 192.168.56.1:11258 is $34400.926
+Shipment 52 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>52</Index></Confirm>
+Sending shipment 53 to master server
+Processing message: <InsertCost><Cost>42665.79</Cost><AfterIndex>0</AfterIndex><TruckNumber>6</TruckNumber><Index>53</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  53 by 192.168.56.1:11258 is $42665.79
+Shipment 53 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>53</Index></Confirm>
+Sending shipment 54 to master server
+Processing message: <InsertCost><Cost>37258.69</Cost><AfterIndex>0</AfterIndex><TruckNumber>7</TruckNumber><Index>54</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  54 by 192.168.56.1:11258 is $37258.69
+Shipment 54 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>54</Index></Confirm>
+Sending shipment 55 to master server
+Processing message: <InsertCost><Cost>22269.979</Cost><AfterIndex>0</AfterIndex><TruckNumber>7</TruckNumber><Index>55</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  55 by 192.168.56.1:11258 is $22269.979
+Shipment 55 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>55</Index></Confirm>
+Sending shipment 56 to master server
+Processing message: <InsertCost><Cost>24207.64</Cost><AfterIndex>40</AfterIndex><TruckNumber>4</TruckNumber><Index>56</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  56 by 192.168.56.1:11258 is $24207.64
+Shipment 56 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>56</Index></Confirm>
+Sending shipment 57 to master server
+Processing message: <InsertCost><Cost>22445.97</Cost><AfterIndex>0</AfterIndex><TruckNumber>8</TruckNumber><Index>57</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  57 by 192.168.56.1:11258 is $22445.97
+Shipment 57 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>57</Index></Confirm>
+Sending shipment 58 to master server
+Processing message: <InsertCost><Cost>17461.857</Cost><AfterIndex>56</AfterIndex><TruckNumber>4</TruckNumber><Index>58</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  58 by 192.168.56.1:11258 is $17461.857
+Shipment 58 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>58</Index></Confirm>
+Sending shipment 59 to master server
+Processing message: <InsertCost><Cost>19130.527</Cost><AfterIndex>22</AfterIndex><TruckNumber>2</TruckNumber><Index>59</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  59 by 192.168.56.1:11258 is $19130.527
+Shipment 59 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>59</Index></Confirm>
+Sending shipment 60 to master server
+Processing message: <InsertCost><Cost>19588.602</Cost><AfterIndex>58</AfterIndex><TruckNumber>4</TruckNumber><Index>60</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  60 by 192.168.56.1:11258 is $19588.602
+Shipment 60 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>60</Index></Confirm>
+Sending shipment 61 to master server
+Processing message: <InsertCost><Cost>27425.445</Cost><AfterIndex>44</AfterIndex><TruckNumber>6</TruckNumber><Index>61</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  61 by 192.168.56.1:11258 is $27425.445
+Shipment 61 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>61</Index></Confirm>
+Sending shipment 62 to master server
+Processing message: <InsertCost><Cost>37135.906</Cost><AfterIndex>0</AfterIndex><TruckNumber>8</TruckNumber><Index>62</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  62 by 192.168.56.1:11258 is $37135.906
+Shipment 62 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>62</Index></Confirm>
+Sending shipment 63 to master server
+Processing message: <InsertCost><Cost>29998.588</Cost><AfterIndex>57</AfterIndex><TruckNumber>7</TruckNumber><Index>63</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  63 by 192.168.56.1:11258 is $29998.588
+Shipment 63 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>63</Index></Confirm>
+Sending shipment 64 to master server
+Processing message: <InsertCost><Cost>21534.895</Cost><AfterIndex>60</AfterIndex><TruckNumber>4</TruckNumber><Index>64</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  64 by 192.168.56.1:11258 is $21534.895
+Shipment 64 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>64</Index></Confirm>
+Sending shipment 65 to master server
+Processing message: <InsertCost><Cost>13210.915</Cost><AfterIndex>0</AfterIndex><TruckNumber>9</TruckNumber><Index>65</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  65 by 192.168.56.1:11258 is $13210.915
+Shipment 65 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>65</Index></Confirm>
+Sending shipment 66 to master server
+Processing message: <InsertCost><Cost>21021.668</Cost><AfterIndex>64</AfterIndex><TruckNumber>4</TruckNumber><Index>66</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  66 by 192.168.56.1:11258 is $21021.668
+Shipment 66 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>66</Index></Confirm>
+Sending shipment 67 to master server
+Processing message: <InsertCost><Cost>21069.375</Cost><AfterIndex>0</AfterIndex><TruckNumber>10</TruckNumber><Index>67</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  67 by 192.168.56.1:11258 is $21069.375
+Shipment 67 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>67</Index></Confirm>
+Sending shipment 68 to master server
+Processing message: <InsertCost><Cost>29128.027</Cost><AfterIndex>45</AfterIndex><TruckNumber>5</TruckNumber><Index>68</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  68 by 192.168.56.1:11258 is $29128.027
+Shipment 68 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>68</Index></Confirm>
+Sending shipment 69 to master server
+Processing message: <InsertCost><Cost>22697.99</Cost><AfterIndex>4</AfterIndex><TruckNumber>3</TruckNumber><Index>69</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  69 by 192.168.56.1:11258 is $22697.99
+Shipment 69 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>69</Index></Confirm>
+Sending shipment 70 to master server
+Processing message: <InsertCost><Cost>36720.684</Cost><AfterIndex>63</AfterIndex><TruckNumber>7</TruckNumber><Index>70</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  70 by 192.168.56.1:11258 is $36720.684
+Shipment 70 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>70</Index></Confirm>
+Sending shipment 71 to master server
+Processing message: <InsertCost><Cost>25904.557</Cost><AfterIndex>65</AfterIndex><TruckNumber>9</TruckNumber><Index>71</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  71 by 192.168.56.1:11258 is $25904.557
+Shipment 71 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>71</Index></Confirm>
+Sending shipment 72 to master server
+Processing message: <InsertCost><Cost>27359.59</Cost><AfterIndex>2</AfterIndex><TruckNumber>0</TruckNumber><Index>72</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  72 by 192.168.56.1:11258 is $27359.59
+Shipment 72 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>72</Index></Confirm>
+Sending shipment 73 to master server
+Processing message: <InsertCost><Cost>24851.29</Cost><AfterIndex>70</AfterIndex><TruckNumber>7</TruckNumber><Index>73</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  73 by 192.168.56.1:11258 is $24851.29
+Shipment 73 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>73</Index></Confirm>
+Sending shipment 74 to master server
+Processing message: <InsertCost><Cost>25155.906</Cost><AfterIndex>62</AfterIndex><TruckNumber>8</TruckNumber><Index>74</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  74 by 192.168.56.1:11258 is $25155.906
+Shipment 74 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>74</Index></Confirm>
+Sending shipment 75 to master server
+Processing message: <InsertCost><Cost>25375.809</Cost><AfterIndex>66</AfterIndex><TruckNumber>4</TruckNumber><Index>75</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  75 by 192.168.56.1:11258 is $25375.809
+Shipment 75 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>75</Index></Confirm>
+Sending shipment 76 to master server
+Processing message: <InsertCost><Cost>39482.848</Cost><AfterIndex>0</AfterIndex><TruckNumber>10</TruckNumber><Index>76</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  76 by 192.168.56.1:11258 is $39482.848
+Shipment 76 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>76</Index></Confirm>
+Sending shipment 77 to master server
+Processing message: <InsertCost><Cost>47803.27</Cost><AfterIndex>73</AfterIndex><TruckNumber>7</TruckNumber><Index>77</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  77 by 192.168.56.1:11258 is $47803.27
+Shipment 77 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>77</Index></Confirm>
+Sending shipment 78 to master server
+Processing message: <InsertCost><Cost>46608.996</Cost><AfterIndex>0</AfterIndex><TruckNumber>10</TruckNumber><Index>78</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  78 by 192.168.56.1:11258 is $46608.996
+Shipment 78 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>78</Index></Confirm>
+Sending shipment 79 to master server
+Processing message: <InsertCost><Cost>26711.146</Cost><AfterIndex>77</AfterIndex><TruckNumber>7</TruckNumber><Index>79</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  79 by 192.168.56.1:11258 is $26711.146
+Shipment 79 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>79</Index></Confirm>
+Sending shipment 80 to master server
+Processing message: <InsertCost><Cost>35620.4</Cost><AfterIndex>61</AfterIndex><TruckNumber>6</TruckNumber><Index>80</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  80 by 192.168.56.1:11258 is $35620.4
+Shipment 80 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>80</Index></Confirm>
+Sending shipment 81 to master server
+Processing message: <InsertCost><Cost>23000.719</Cost><AfterIndex>0</AfterIndex><TruckNumber>8</TruckNumber><Index>81</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  81 by 192.168.56.1:11258 is $23000.719
+Shipment 81 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>81</Index></Confirm>
+Sending shipment 82 to master server
+Processing message: <InsertCost><Cost>32754.693</Cost><AfterIndex>4</AfterIndex><TruckNumber>3</TruckNumber><Index>82</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  82 by 192.168.56.1:11258 is $32754.693
+Shipment 82 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>82</Index></Confirm>
+Sending shipment 83 to master server
+Processing message: <InsertCost><Cost>33739.156</Cost><AfterIndex>2</AfterIndex><TruckNumber>0</TruckNumber><Index>83</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  83 by 192.168.56.1:11258 is $33739.156
+Shipment 83 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>83</Index></Confirm>
+Sending shipment 84 to master server
+Processing message: <InsertCost><Cost>32330.854</Cost><AfterIndex>74</AfterIndex><TruckNumber>8</TruckNumber><Index>84</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  84 by 192.168.56.1:11258 is $32330.854
+Shipment 84 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>84</Index></Confirm>
+Sending shipment 85 to master server
+Processing message: <InsertCost><Cost>32251.277</Cost><AfterIndex>82</AfterIndex><TruckNumber>3</TruckNumber><Index>85</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  85 by 192.168.56.1:11258 is $32251.277
+Shipment 85 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>85</Index></Confirm>
+Sending shipment 86 to master server
+Processing message: <InsertCost><Cost>34847.242</Cost><AfterIndex>0</AfterIndex><TruckNumber>11</TruckNumber><Index>86</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  86 by 192.168.56.1:11258 is $34847.242
+Shipment 86 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>86</Index></Confirm>
+Sending shipment 87 to master server
+Processing message: <InsertCost><Cost>33504.773</Cost><AfterIndex>0</AfterIndex><TruckNumber>11</TruckNumber><Index>87</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  87 by 192.168.56.1:11258 is $33504.773
+Shipment 87 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>87</Index></Confirm>
+Sending shipment 88 to master server
+Processing message: <InsertCost><Cost>42996.766</Cost><AfterIndex>84</AfterIndex><TruckNumber>8</TruckNumber><Index>88</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  88 by 192.168.56.1:11258 is $42996.766
+Shipment 88 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>88</Index></Confirm>
+Sending shipment 89 to master server
+Processing message: <InsertCost><Cost>35859.105</Cost><AfterIndex>14</AfterIndex><TruckNumber>4</TruckNumber><Index>89</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  89 by 192.168.56.1:11258 is $35859.105
+Shipment 89 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>89</Index></Confirm>
+Sending shipment 90 to master server
+Processing message: <InsertCost><Cost>40076.035</Cost><AfterIndex>0</AfterIndex><TruckNumber>12</TruckNumber><Index>90</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  90 by 192.168.56.1:11258 is $40076.035
+Shipment 90 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>90</Index></Confirm>
+Sending shipment 91 to master server
+Processing message: <InsertCost><Cost>38963.504</Cost><AfterIndex>89</AfterIndex><TruckNumber>4</TruckNumber><Index>91</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  91 by 192.168.56.1:11258 is $38963.504
+Shipment 91 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>91</Index></Confirm>
+Sending shipment 92 to master server
+Processing message: <InsertCost><Cost>36821.574</Cost><AfterIndex>78</AfterIndex><TruckNumber>10</TruckNumber><Index>92</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  92 by 192.168.56.1:11258 is $36821.574
+Shipment 92 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>92</Index></Confirm>
+Sending shipment 93 to master server
+Processing message: <InsertCost><Cost>46626.48</Cost><AfterIndex>71</AfterIndex><TruckNumber>9</TruckNumber><Index>93</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  93 by 192.168.56.1:11258 is $46626.48
+Shipment 93 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>93</Index></Confirm>
+Sending shipment 94 to master server
+Processing message: <InsertCost><Cost>31954.168</Cost><AfterIndex>80</AfterIndex><TruckNumber>6</TruckNumber><Index>94</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  94 by 192.168.56.1:11258 is $31954.168
+Shipment 94 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>94</Index></Confirm>
+Sending shipment 95 to master server
+Processing message: <InsertCost><Cost>40818.84</Cost><AfterIndex>85</AfterIndex><TruckNumber>3</TruckNumber><Index>95</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  95 by 192.168.56.1:11258 is $40818.84
+Shipment 95 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>95</Index></Confirm>
+Sending shipment 96 to master server
+Processing message: <InsertCost><Cost>37065.668</Cost><AfterIndex>79</AfterIndex><TruckNumber>7</TruckNumber><Index>96</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  96 by 192.168.56.1:11258 is $37065.668
+Shipment 96 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>96</Index></Confirm>
+Sending shipment 97 to master server
+Processing message: <InsertCost><Cost>17465.367</Cost><AfterIndex>93</AfterIndex><TruckNumber>9</TruckNumber><Index>97</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  97 by 192.168.56.1:11258 is $17465.367
+Shipment 97 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>97</Index></Confirm>
+Sending shipment 98 to master server
+Processing message: <InsertCost><Cost>18810.098</Cost><AfterIndex>60</AfterIndex><TruckNumber>5</TruckNumber><Index>98</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  98 by 192.168.56.1:11258 is $18810.098
+Shipment 98 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>98</Index></Confirm>
+Sending shipment 99 to master server
+Processing message: <InsertCost><Cost>36367.844</Cost><AfterIndex>88</AfterIndex><TruckNumber>8</TruckNumber><Index>99</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  99 by 192.168.56.1:11258 is $36367.844
+Shipment 99 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>99</Index></Confirm>
+Sending shipment 100 to master server
+Processing message: <InsertCost><Cost>28043.46</Cost><AfterIndex>97</AfterIndex><TruckNumber>9</TruckNumber><Index>100</Index><InternetAddress><IPAddress>192.168.56.1</IPAddress><PortNumber>11258</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  100 by 192.168.56.1:11258 is $28043.46
+Shipment 100 was accepted for carrier 192.168.56.1:11258
+Processing message: <Confirm><Index>100</Index></Confirm>

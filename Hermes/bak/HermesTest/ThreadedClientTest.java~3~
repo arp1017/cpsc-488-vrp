@@ -1,0 +1,28 @@
+package HermesTest;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class ThreadedClientTest extends TestCase {
+    public ThreadedClientTest() {
+    }
+
+    public void setUp() {
+    }
+
+    /**
+     * test to see if you are making the client properly
+     */
+    public void testMakeThreadedClient() {
+    }
+}

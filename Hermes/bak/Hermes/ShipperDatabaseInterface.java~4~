@@ -1,0 +1,14 @@
+package Hermes;
+
+
+/**
+ * <p>Title: ShipperDatabaseInterface.java </p>
+ * <p>Description: Handles all communication between the shipper and the databases.</p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 2.3
+ */
+public class ShipperDatabaseInterface extends DatabaseInterface {
+    public ShipperDatabaseInterface(String databaseName) {
+        super(databaseName);
+    }
+}

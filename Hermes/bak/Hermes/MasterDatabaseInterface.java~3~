@@ -1,0 +1,33 @@
+package Hermes;
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class MasterDatabaseInterface{
+
+  public static void addCarrier(){
+    DatabaseInterface database = new DatabaseInterface(DatabaseInterface.REGISTERSHIPCAR);
+    database.queryDatabase("");
+  }
+
+  public static void addShipper(){
+    DatabaseInterface database = new DatabaseInterface(DatabaseInterface.REGISTERSHIPCAR);
+    database.queryDatabase("");
+  }
+
+  public static void removeCarrier(){
+    DatabaseInterface database = new DatabaseInterface(DatabaseInterface.REGISTERSHIPCAR);
+    database.queryDatabase("");
+  }
+
+  public static void removeShipper(){
+    DatabaseInterface database = new DatabaseInterface(DatabaseInterface.REGISTERSHIPCAR);
+    database.queryDatabase("");
+  }
+}

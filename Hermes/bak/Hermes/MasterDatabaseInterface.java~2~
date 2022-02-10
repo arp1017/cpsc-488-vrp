@@ -1,0 +1,40 @@
+package Hermes;
+
+import java.sql.*;
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class MasterDatabaseInterface {
+  private Connection connDrv;
+
+  public MasterDatabaseInterface(String databaseName) {
+    try{
+      //load the database
+      Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+
+      //establish a connection using the jdbc odbc bridge
+      connDrv = DriverManager.getConnection("jdbc:odbc"+databaseName,"","");
+    }catch(Exception e){
+      e.printStackTrace();
+    }
+  }
+
+  public ResultSet queryDatabase(String query){
+    ResultSet result = null;
+    try{
+      Statement stmt = connDrv.createStatement();
+      result = stmt.executeQuery(query);
+    }
+    catch(SQLException sqle){
+      sqle.printStackTrace();
+    }
+    return result;
+  }
+
+}

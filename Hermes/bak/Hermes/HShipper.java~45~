@@ -1,0 +1,56 @@
+package Hermes;
+
+import java.net.InetAddress;
+
+/**
+ * Driver Program for the Hermes Shipper Agent.
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class HShipper {
+    public static boolean isVerbose = false; // for debugging later
+    private ShipperAgentInterface sai;
+
+    /**
+     * Costructor. Will begin the Shipper Agent
+     * @param code unique shipper code
+     * @param IP shipper IP address
+     */
+    public HShipper(String code, String IP) {
+        isVerbose = true;
+        sai = new ShipperAgentInterface(code, IP);
+    }
+
+
+    public static void main(String[] args) {
+        try {
+            //if the user has not used the proper amount of cmd line params throw
+            //an exception
+            if (args.length != 2) {
+                throw new Exception();
+            }
+
+            /**
+             * This section of code will:
+             * 1) create an instance of a shipper agent
+             * 2) extract the shippers code from the command line
+             * 3) find the IP address of the machine the shipper is created on
+             * 4) extract the problem file name
+             */
+            new HShipper(args[0],
+                InetAddress.getLocalHost().toString()
+                .substring(InetAddress.getLocalHost()
+                .toString().indexOf("/") + 1), args[1]);
+
+        } catch (Exception nfe) {
+            //user made a mistake with the command line params. Output a helpful msg
+            System.err.println("args.length = " + args.length);
+            System.err.println(
+                "Error -Usage- java HShipper <shipper code> <problem file name>");
+        }
+    }
+}

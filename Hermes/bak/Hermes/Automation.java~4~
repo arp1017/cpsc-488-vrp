@@ -1,0 +1,33 @@
+package Hermes;
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class Automation {
+
+  public Automation() {
+  }
+
+  public Automation(String dataFile, int numCarr, String depotFile){
+    new Master();
+
+  }
+
+  public static void main(String []args){
+    if(args.length > 0 && args.length < 4){
+      String dataFile = args[0];
+      int numCarriers = Integer.parseInt(args[1]);
+      String depotFile = args[2];
+      new Automation(dataFile, numCarriers, depotFile);
+    }
+    else if(args.length == 0){
+      //run interface
+    }
+  }
+}

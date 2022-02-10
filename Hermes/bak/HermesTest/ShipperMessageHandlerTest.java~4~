@@ -1,0 +1,35 @@
+package HermesTest;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class ShipperMessageHandlerTest extends TestCase {
+    public ShipperMessageHandlerTest() {
+    }
+
+    public void setUp() {
+    }
+
+    /**
+     * Test to see if done bidding message is made properly and sent to the
+     * master server.
+     */
+    public void testSendDoneBiddingOnPoints() {
+    }
+
+    /**
+     * Test to see if the received bid is being saved properly
+     */
+    public void testSetCostSendPoint() {
+    }
+}

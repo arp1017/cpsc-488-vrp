@@ -1,0 +1,51 @@
+package Hermes;
+
+import MSS8.Message;
+import MSS8.MessageTags;
+import MSS8.Client;
+
+import java.net.*;
+
+/**
+ * Threaded class that will send messages to the other agents.
+ * <p>Title: </p>
+ * <p>Description: Threaded class that will send messages to the other agents.
+ * Uses the Client class from MSS8 to do the actual sending of messages.</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class MasterMessageSender extends Thread{
+
+  Message message;
+  Socket socket;
+
+  /**
+   * Constructor, sets the message to send and the socket of where to send it.
+   * Will spawn a thread to handle the sending of this message
+   * @param m message to send
+   * @param s socket to send message with
+   */
+  public MasterMessageSender(Message m, Socket s) {
+    message = m;
+    socket = s;
+
+    //start the thread to send it.
+    start();
+  }
+
+  /**
+   * Will run the thread. This will send the message to the desired client
+   */
+  public void run(){
+    //make an MSS8 client to send the message
+    Client client = new Client();
+
+  }
+
+
+
+
+}

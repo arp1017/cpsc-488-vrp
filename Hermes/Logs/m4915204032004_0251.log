@@ -1,0 +1,240 @@
+Incoming message: <Register><AgentType>Shipper</AgentType><Code>null</Code><Name>null</Name><InternetAddress><IPAddress>10.1.74.74</IPAddress></InternetAddress></Register>
+Registering Shipper: null null 10.1.74.74:49263
+Incoming message: <Register><AgentType>Carrier</AgentType><Code>2020</Code><Name>UPS SRU</Name><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>0</PortNumber></InternetAddress></Register>
+Registering Shipper: UPS SRU 2020 10.1.74.74:58983
+Incoming message: <Register><AgentType>Carrier</AgentType><Code>2020</Code><Name>UPS SRU</Name><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>0</PortNumber></InternetAddress></Register>
+Registering Shipper: UPS SRU 2020 10.1.74.74:62529
+Incoming message: <StartPoints></StartPoints>
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1127.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1127.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>68.96376</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>68.96376</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>68.96376</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>68.96376</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1127.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 58983----><Accept><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1127.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>1</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>1</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1127.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Incoming message: <GetSummary></GetSummary>
+Broadcasting to carrier: 62529
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Incoming message: <GetSummary></GetSummary>
+Broadcasting to carrier: 62529
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1125.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1125.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>72.88243</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>72.88243</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>72.8011</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>72.8011</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1125.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 62529----><Accept><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1125.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>2</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>2</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1125.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Incoming message: <GetSummary></GetSummary>
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>3</Index><XCoord>42.0</XCoord><YCoord>66.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1129.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>3</Index><XCoord>42.0</XCoord><YCoord>66.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1129.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>63.560993</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>3</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>63.560993</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>3</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>73.7866</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>3</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>73.7866</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>3</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>3</Index><XCoord>42.0</XCoord><YCoord>66.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1129.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 58983----><Accept><Index>3</Index><XCoord>42.0</XCoord><YCoord>66.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1129.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>3</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>3</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>3</Index><XCoord>42.0</XCoord><YCoord>66.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1129.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Incoming message: <GetSummary></GetSummary>
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>4</Index><XCoord>42.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>727.0</EarlyTime><LateTime>782.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>4</Index><XCoord>42.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>727.0</EarlyTime><LateTime>782.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>46841.08</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>4</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>46841.08</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>4</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>31430.715</Cost><AfterIndex>1</AfterIndex><TruckNumber>0</TruckNumber><Index>4</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>31430.715</Cost><AfterIndex>1</AfterIndex><TruckNumber>0</TruckNumber><Index>4</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>4</Index><XCoord>42.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>727.0</EarlyTime><LateTime>782.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 62529----><Accept><Index>4</Index><XCoord>42.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>727.0</EarlyTime><LateTime>782.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>4</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>4</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>4</Index><XCoord>42.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>727.0</EarlyTime><LateTime>782.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>5</Index><XCoord>42.0</XCoord><YCoord>65.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>5</Index><XCoord>42.0</XCoord><YCoord>65.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>61.611687</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>5</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>61.611687</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>5</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>24640.738</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>5</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>24640.738</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>5</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>5</Index><XCoord>42.0</XCoord><YCoord>65.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 58983----><Accept><Index>5</Index><XCoord>42.0</XCoord><YCoord>65.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>5</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>5</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>5</Index><XCoord>42.0</XCoord><YCoord>65.0</YCoord><Demand>10.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Incoming message: <GetSummary></GetSummary>
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>6</Index><XCoord>40.0</XCoord><YCoord>69.0</YCoord><Demand>20.0</Demand><EarlyTime>621.0</EarlyTime><LateTime>702.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>6</Index><XCoord>40.0</XCoord><YCoord>69.0</YCoord><Demand>20.0</Demand><EarlyTime>621.0</EarlyTime><LateTime>702.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>40388.906</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>6</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>40388.906</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>6</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>18305.908</Cost><AfterIndex>2</AfterIndex><TruckNumber>0</TruckNumber><Index>6</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>18305.908</Cost><AfterIndex>2</AfterIndex><TruckNumber>0</TruckNumber><Index>6</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>6</Index><XCoord>40.0</XCoord><YCoord>69.0</YCoord><Demand>20.0</Demand><EarlyTime>621.0</EarlyTime><LateTime>702.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 62529----><Accept><Index>6</Index><XCoord>40.0</XCoord><YCoord>69.0</YCoord><Demand>20.0</Demand><EarlyTime>621.0</EarlyTime><LateTime>702.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>6</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>6</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>6</Index><XCoord>40.0</XCoord><YCoord>69.0</YCoord><Demand>20.0</Demand><EarlyTime>621.0</EarlyTime><LateTime>702.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>7</Index><XCoord>40.0</XCoord><YCoord>66.0</YCoord><Demand>20.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>7</Index><XCoord>40.0</XCoord><YCoord>66.0</YCoord><Demand>20.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>62.801273</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>7</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>62.801273</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>7</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>11417.987</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>7</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>11417.987</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>7</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>7</Index><XCoord>40.0</XCoord><YCoord>66.0</YCoord><Demand>20.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 58983----><Accept><Index>7</Index><XCoord>40.0</XCoord><YCoord>66.0</YCoord><Demand>20.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>7</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>7</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>7</Index><XCoord>40.0</XCoord><YCoord>66.0</YCoord><Demand>20.0</Demand><EarlyTime>0.0</EarlyTime><LateTime>1130.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Incoming message: <GetSummary></GetSummary>
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>8</Index><XCoord>38.0</XCoord><YCoord>68.0</YCoord><Demand>20.0</Demand><EarlyTime>255.0</EarlyTime><LateTime>324.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>8</Index><XCoord>38.0</XCoord><YCoord>68.0</YCoord><Demand>20.0</Demand><EarlyTime>255.0</EarlyTime><LateTime>324.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Incoming message: <GetSummary></GetSummary>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>14769.674</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>8</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>14769.674</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>8</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>3766.474</Cost><AfterIndex>5</AfterIndex><TruckNumber>0</TruckNumber><Index>8</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>3766.474</Cost><AfterIndex>5</AfterIndex><TruckNumber>0</TruckNumber><Index>8</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>8</Index><XCoord>38.0</XCoord><YCoord>68.0</YCoord><Demand>20.0</Demand><EarlyTime>255.0</EarlyTime><LateTime>324.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 62529----><Accept><Index>8</Index><XCoord>38.0</XCoord><YCoord>68.0</YCoord><Demand>20.0</Demand><EarlyTime>255.0</EarlyTime><LateTime>324.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>8</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>8</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>8</Index><XCoord>38.0</XCoord><YCoord>68.0</YCoord><Demand>20.0</Demand><EarlyTime>255.0</EarlyTime><LateTime>324.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>9</Index><XCoord>38.0</XCoord><YCoord>70.0</YCoord><Demand>10.0</Demand><EarlyTime>534.0</EarlyTime><LateTime>605.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>9</Index><XCoord>38.0</XCoord><YCoord>70.0</YCoord><Demand>10.0</Demand><EarlyTime>534.0</EarlyTime><LateTime>605.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate>
+Incoming message: <GetSummary></GetSummary>
+Broadcasting to carrier: 58983
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>35119.32</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>9</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>35119.32</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>9</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Broadcasting to carrier: 62529
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><InsertCost><Cost>38277.6</Cost><AfterIndex>0</AfterIndex><TruckNumber>1</TruckNumber><Index>9</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.74.74 49263----><InsertCost><Cost>38277.6</Cost><AfterIndex>0</AfterIndex><TruckNumber>1</TruckNumber><Index>9</Index><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>62529</PortNumber></InternetAddress><CarrierCount>2</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>58983</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>9</Index><XCoord>38.0</XCoord><YCoord>70.0</YCoord><Demand>10.0</Demand><EarlyTime>534.0</EarlyTime><LateTime>605.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.74.74 58983----><Accept><Index>9</Index><XCoord>38.0</XCoord><YCoord>70.0</YCoord><Demand>10.0</Demand><EarlyTime>534.0</EarlyTime><LateTime>605.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></RelayAddress><Confirm><Index>9</Index></Confirm></Relay>
+Relaying message to 10.1.74.74 49263----><Confirm><Index>9</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>9</Index><XCoord>38.0</XCoord><YCoord>70.0</YCoord><Demand>10.0</Demand><EarlyTime>534.0</EarlyTime><LateTime>605.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.74.74</IPAddress><PortNumber>49263</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 58983
+Broadcasting to carrier: 62529
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <GetSummary></GetSummary>

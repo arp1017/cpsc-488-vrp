@@ -1,0 +1,47 @@
+package Hermes;
+
+import java.net.*;
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class Automation {
+
+  public Automation() {
+  }
+
+  public Automation(String dataFile, int numCarr, String depotFile){
+    String thisIP;
+    try {
+      thisIP = InetAddress.getLocalHost().toString().substring(InetAddress.getLocalHost()
+                                                                             .toString()
+                                                                             .indexOf("/") + 1);
+    }
+    catch (UnknownHostException ex) {
+      ex.printStackTrace();
+    }
+
+    new Master(true);
+    for(int i=0; i< numCarr; i++){
+
+    }
+
+  }
+
+  public static void main(String []args){
+    if(args.length > 0 && args.length < 4){
+      String dataFile = args[0];
+      int numCarriers = Integer.parseInt(args[1]);
+      String depotFile = args[2];
+      new Automation(dataFile, numCarriers, depotFile);
+    }
+    else if(args.length == 0){
+      //run interface
+    }
+  }
+}

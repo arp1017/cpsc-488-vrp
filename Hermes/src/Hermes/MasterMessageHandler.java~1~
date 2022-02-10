@@ -1,0 +1,146 @@
+package Hermes;
+
+
+import java.io.*;
+
+import java.net.*;
+
+
+/**
+ * Handles all incoming messages to the master server.
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class MasterMessageHandler extends Thread {
+  /**
+   * Socket that will be read.
+   */
+  private Socket incomingCommunication;
+
+  /**
+   * Constructor, will read all the messages from the incoming thread and
+   * do the appropriate actions to handle them.
+   * @param incomingComm socket to the newly connected client
+   */
+  public MasterMessageHandler(Socket incomingComm) {
+    //assign the socket
+    incomingCommunication = incomingComm;
+
+    //start the thread to handle the message
+    start();
+  }
+
+  public void run() {
+    try {
+      //create a reader to the socket
+      BufferedReader in = new BufferedReader(new InputStreamReader(
+            incomingCommunication.getInputStream()));
+
+      //get the message contained in the socket
+      Message clientMsg = new Message(in.readLine());
+
+      //get the type of message
+      String messageType = clientMsg.getMessageType();
+
+      //now process the message based upon its type
+      //shipper is beginning to send the customers
+      if (messageType.equals(MessageTags.StartSendPointsTag)) {
+      }
+      //the message contains a shipment
+      else if (messageType.equals(MessageTags.ShipmentTag)) {
+        try {
+          //when shipper has found the winner this is being called.
+          if (clientMsg.getValue(MessageTags.DestinationTag).equals(MessageTags.CarrierMessage)) {
+            //send the shipment to the carrier to accept
+            sendShipmentToCarrierToAccept(clientMsg.getMessage(
+                MessageTags.InetAddressTag),
+              clientMsg.getMessage(MessageTags.CustomerTag));
+          }
+          //when the shipments are first being posted, this is called.
+          else if (clientMsg.getValue(MessageTags.DestinationTag).equals(MessageTags.ServerMessage)) {
+            //save this shipment in the linked list
+            postShipmentsToMainLinkedList(clientMsg.getMessage(
+                MessageTags.CustomerTag));
+          }
+        } catch (Exception e) {
+          System.err.println("Error while handling Shipment Tag");
+          e.printStackTrace();
+        }
+      }
+      //shipper has finished sending the customers
+      else if (messageType.equals(MessageTags.EndSendPointsTag)) {
+      }
+
+      else if(messageType.equals(MessageTags.AckTag)){
+        //do nothing, just an ack
+      }
+      else{
+        System.err.println("Unknown Tag " + messageType);
+      }
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Sends a shipment to the carrier to accept.
+   * @param address IP and Port of the Carrier
+   * @param shipment information about the shipment
+   * @todo handle the return from carrier to see if it was actually accepted.
+   */
+  private void sendShipmentToCarrierToAccept(Message address, Message shipment) {
+    Message msg = new Message();
+    Message clientMsg;
+    Socket carrierSocket = null;
+
+    //variable to hold the carrier's address from the address message
+    String ip = "";
+    int portNo = 0;
+
+    try {
+      //get the carrier's address
+      ip = address.getValue(MessageTags.IPAddressTag);
+      portNo = Integer.parseInt(address.getValue(MessageTags.PortNumberTag));
+
+      //create a message asking the carrier if it will accept the shipment
+      msg.setMessageType(MessageTags.AcceptTag);
+      msg.addArgument(MessageTags.DestinationTag, MessageTags.CarrierMessage);
+      msg.addArgument(shipment);
+
+      //create a socket to the carrier
+      carrierSocket = new Socket(ip,portNo);
+
+      //send the message to the carrier
+//      iniClient.sendCommunicationMsg(carrierSocket, msg); //start the client
+
+//      clientMsg = new Message(iniClient.getServerMsg());
+    } catch (Exception exc) {
+      exc.printStackTrace();
+    }
+  }
+
+  /**
+   * Will update the linked list in the Master Server holding all the shipments
+   * to be sent out to the Carriers
+   * @param customer message containing the customer info
+   */
+  private void postShipmentsToMainLinkedList(Message customer) {
+    //add the customer to the shipments list
+    Master.shipments.add(new MasterServerShipment(customer));
+  }
+
+  /**
+   * Will insert this shipment into the database "MainDatabase.mdb"
+   * @param customer shipment to insert
+   */
+  private void insertShipmentsIntoDatabase(Message customer){
+    //MasterDatabaseInterface database = new MasterDatabaseInterface("MasterDB");
+    //String id = customer.getMessage(MessageTags.)
+    //database.queryDatabase("Insert into Shipments");
+  }
+}

@@ -1,0 +1,19 @@
+package Hermes;
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class ZeusAdaptorTest {
+
+  public ZeusAdaptorTest() {
+  }
+  public static void main(String[] args) {
+    ZeusAdaptorTest zeusAdaptorTest1 = new ZeusAdaptorTest();
+  }
+}

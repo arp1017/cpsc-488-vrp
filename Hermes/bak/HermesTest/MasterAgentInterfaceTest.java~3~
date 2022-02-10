@@ -1,0 +1,47 @@
+package HermesTest;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class MasterAgentInterfaceTest extends TestCase {
+    public MasterAgentInterfaceTest() {
+    }
+
+    /**
+     * Tests to see if lesser optimization message is being generated properly.
+     * And if the text fields are being updated properly.
+     */
+    public void testLesserOptimization() {
+    }
+
+    /**
+     * Tests to see if greater optimization message is being generated properly
+     * and if the text fields are being updated properly.
+     */
+    public void testGreaterOptimization() {
+    }
+
+    /**
+     * Test to see if the terminate message is being generated properly and the
+     * master server is shutting down.
+     */
+    public void testTerminate() {
+    }
+
+    /**
+     * Test to see if the short solution, long solution, and std out files are
+     * being generated correctly
+     */
+    public void testMasterSchedule() {
+    }
+}

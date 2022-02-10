@@ -1,0 +1,34 @@
+package HermesTest;
+
+import java.net.ServerSocket;
+
+
+/**
+ * This will occupy a port on the computer to create a bind exception
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class PortOccupier {
+    private int port = 50000;
+    private String ip = "10.1.74.74";
+
+    public PortOccupier() {
+        try {
+            ServerSocket server = new ServerSocket(port);
+
+            while (true) {
+                server.accept();
+            }
+        } catch (java.io.IOException ioe) {
+            ioe.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        new PortOccupier();
+    }
+}

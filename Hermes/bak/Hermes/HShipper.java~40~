@@ -1,0 +1,395 @@
+package Hermes;
+
+import Zeus.Shipment;
+import Zeus.ShipmentLinkedList;
+
+import java.io.*;
+
+import java.net.InetAddress;
+
+import java.util.StringTokenizer;
+
+
+/**
+ * Driver Program for the Hermes Shipper Agent.
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class HShipper {
+    public static boolean isVerbose = false; // for debugging later
+    private String shipperCode;
+    private String shipperIP;
+    private int shipperPort;
+    private ShipperAgentInterface sai;
+    private ShipmentLinkedList mainShipments;
+
+    /**
+     * Costructor. Will begin the Shipper Agent
+     * @param code unique shipper code
+     * @param IP shipper IP address
+     */
+    public HShipper(String code, String IP) {
+        shipperCode = code;
+        isVerbose = true;
+        shipperIP = IP;
+        mainShipments = new ShipmentLinkedList();
+        sai = new ShipperAgentInterface(shipperCode, shipperIP, this);
+    }
+
+    /**
+     * get the IP address of the shipper
+     * @return String  IP adress of the shipper
+     */
+    public String getIP() {
+        return shipperIP;
+    }
+
+    /**
+     * get port number of the shipper
+     * @return int  port number
+     */
+    public int getPort() {
+        return shipperPort;
+    }
+
+    /**
+     * get the list of shipments to service
+     * @return ShipmentLinkedList  list of shipments
+     */
+    public ShipmentLinkedList getShipments() {
+        return mainShipments;
+    }
+
+    /**
+    * <p>Read in the data from the datafile and load it into the mainShipments
+    * ShipmentLinkedList using the tokenizer.</p>
+    * @param fileName String type of the filename consisting of the data
+    * @return int Return 1 if all successful, 0 for failure
+    */
+    public int readFileData(String fileName) {
+        /* read in the data from the listed file and load the information
+           into the availShipments linked list
+        */
+        int customerCount = 0; // number of shipments
+        int numDepots = 0; // number of depots available
+        int demand = 0; // maximum demand a truck may carry/demand of a customer
+        float distance = 0; // maximum distance a truck may travel
+        float x = 0; //x coordinate
+        float y = 0; //y coordinate
+        int earliestTime = 0; // earliest time to visit customer
+        int latestTime = 0; // latest time to visit customer
+        int servTime = 0; // time to service customer
+        int index = 0; // index of customer
+        int garbage; // to collect garbage values in data file
+
+        //open the requested file
+        FileInputStream fis;
+        InputStreamReader isr;
+        BufferedReader br;
+
+        try {
+            fis = new FileInputStream(fileName);
+            isr = new InputStreamReader(fis);
+            br = new BufferedReader(isr);
+        } catch (Exception e) {
+            System.out.println("File is not present");
+
+            return 0;
+        }
+
+        //String to hold the entire line read in
+        String readLn;
+
+        //StringTokenizer to obtain data in tokens
+        StringTokenizer st;
+
+        /* This reads in the first line that is used to determine the total
+           number of customers, max distance trucks travel, max capacity
+           and coordinates of the depot
+         */
+        try {
+            //read in the first line
+            readLn = br.readLine();
+
+            //tokenize the first line
+            st = new StringTokenizer(readLn);
+
+            // first line read are labels, read in second line to get values
+            if (st.nextToken().equalsIgnoreCase("x")) {
+                readLn = br.readLine();
+                st = new StringTokenizer(readLn);
+            } else {
+                st = new StringTokenizer(readLn);
+            }
+
+            //************************************************************************
+            while (st.hasMoreTokens()) { //while there are more tokens
+
+                switch (index) {
+                case 0:
+                    x = Float.parseFloat(st.nextToken());
+
+                    break;
+
+                case 1:
+                    y = Float.parseFloat(st.nextToken());
+
+                    break;
+
+                case 2:
+                    customerCount = Integer.parseInt(st.nextToken());
+
+                    break;
+
+                case 3:
+                    numDepots = Integer.parseInt(st.nextToken());
+
+                    break;
+                } //end switch
+
+                index += 1;
+            }
+
+            //end while
+        } catch (Exception e) {
+            System.out.println("Line could not be read in");
+        }
+
+        //*************************************************************************
+        //Put the problem information into the ProblemInfo class. This is used
+        //to identify the file type and the information that was read in from
+        //the input file. When printing the output this information can be
+        //used to associate with the date file that was read in.
+        //    ProblemInfo.fileName = fileName; //name of the file being read in
+        //    ProblemInfo.noOfShips = customerCount; //number of shipments
+        //    ProblemInfo.depotX = x; // x coordinate of the depot
+        //    ProblemInfo.depotY = y; // y coordinate of the depot
+        if (demand == 0) { //if there is no maximum capacity, set it to a very large number
+            demand = 999999999;
+        }
+
+        if (distance == 0) { //if there is no maximum distance, set it to a very large number
+            distance = 999999999;
+        }
+
+        //    ProblemInfo.maxCapacity = demand; //maximum capacity of a vehicle
+        //    ProblemInfo.maxDistance = distance; //maximum distance of a vehicle
+        //place the number of depots and number of shipments in the linked list instance
+        mainShipments.noShipments = customerCount;
+        mainShipments.noDepots = numDepots;
+        mainShipments.setMaxCapacity(demand);
+        mainShipments.setMaxDuration(distance);
+
+        for (int k = 0; k < numDepots; k++) {
+            try {
+                //read in depot info
+                readLn = br.readLine();
+                st = new StringTokenizer(readLn);
+
+                if (st.nextToken().equalsIgnoreCase("DEPOT")) {
+                    readLn = br.readLine();
+                    st = new StringTokenizer(readLn);
+                } else {
+                    st = new StringTokenizer(readLn);
+                }
+
+                index = 0; // reinitialize index
+
+                while (st.hasMoreElements()) {
+                    switch (index) {
+                    case 0:
+                        x = Float.parseFloat(st.nextToken()); // x coordinate of depot
+
+                        break;
+
+                    case 1:
+                        y = Float.parseFloat(st.nextToken()); // y coordinate of depot
+
+                        break;
+
+                    case 2:
+                        garbage = Integer.parseInt(st.nextToken()); // always zero
+
+                        break;
+
+                    case 3:
+                        index = Integer.parseInt(st.nextToken()); // index of depot
+
+                        break;
+
+                    default:
+                        break;
+                    }
+
+                    index++; // increment index to extract next value
+                }
+
+                // insert the depot information in the the linked list
+                mainShipments.insertDepotPosition(index, x, y);
+            } catch (Exception e) {
+                System.out.println("Reading the line");
+            }
+        }
+
+        //This section will get the customers and related information
+        try {
+            readLn = br.readLine();
+
+            /* The first for loop runtimes dependent upon how many lines are to be read
+               The next for loop reads the line into s.  Then the entire string in s
+               is processesd until the the entire line is processed and there are no
+               more characters are to be processed.
+            */
+
+            //customerCount includes the total number of customers
+            for (int k = 0; k < customerCount; k++) {
+                index = 0;
+                st = new StringTokenizer(readLn);
+
+                if (st.nextToken().equalsIgnoreCase("x")) {
+                    readLn = br.readLine();
+                    st = new StringTokenizer(readLn);
+                } else {
+                    st = new StringTokenizer(readLn);
+                }
+
+                while (st.hasMoreElements()) {
+                    switch (index) {
+                    case 0:
+                        x = Float.parseFloat(st.nextToken()); // x coordinate
+
+                        break;
+
+                    case 1:
+                        y = Float.parseFloat(st.nextToken()); // y coordinate
+
+                        break;
+
+                    case 2:
+                        demand = Integer.parseInt(st.nextToken()); // demand of customer
+
+                        break;
+
+                    case 3:
+                        index = Integer.parseInt(st.nextToken()); // index of customer
+
+                        break;
+
+                    case 4:
+                        garbage = Integer.parseInt(st.nextToken()); // unused value
+
+                        break;
+
+                    case 5:
+                        garbage = Integer.parseInt(st.nextToken()); // unused value
+
+                        break;
+
+                    case 6:
+                        earliestTime = Integer.parseInt(st.nextToken()); // earliest time to service customer
+
+                        break;
+
+                    case 7:
+                        latestTime = Integer.parseInt(st.nextToken()); // latest time to service customer
+
+                        break;
+
+                    case 8:
+                        servTime = Integer.parseInt(st.nextToken()); // time to service customer
+
+                        break;
+
+                    default:
+                        break;
+                    } //end switch
+
+                    index += 1;
+                }
+
+                // end while
+                // insert the shipment information in the the linked list
+                mainShipments.insertShipment(x, y, demand, index, earliestTime,
+                    latestTime, servTime);
+
+                // read the next line from the file
+                try {
+                    if (index < customerCount) { // index is the index of the shipment, customerCount is the total number of shipements
+                        readLn = br.readLine();
+                    }
+                } // try
+                catch (Exception e) {
+                    System.out.println("Reading in the next line");
+                }
+
+                // catch
+            }
+
+            //end for - customerCount
+        } catch (Exception e) {
+            System.out.println("Reading the line");
+        }
+
+        try {
+            //read in Max distance info
+            readLn = br.readLine();
+            st = new StringTokenizer(readLn);
+
+            if (st.nextToken().equalsIgnoreCase("Total")) {
+                readLn = br.readLine();
+                st = new StringTokenizer(readLn);
+            } else {
+                st = new StringTokenizer(readLn);
+            }
+
+            distance = Integer.parseInt(st.nextToken());
+        } catch (IOException ex) {
+        }
+
+        try {
+            //read in Max Vehicle Capacity info
+            readLn = br.readLine();
+            st = new StringTokenizer(readLn);
+
+            if (st.nextToken().equalsIgnoreCase("Vehicle")) {
+                readLn = br.readLine();
+                st = new StringTokenizer(readLn);
+            } else {
+                st = new StringTokenizer(readLn);
+            }
+
+            demand = Integer.parseInt(st.nextToken());
+        } catch (IOException ex) {
+        }
+
+        return 1;
+    }
+
+    public static void main(String[] args) {
+        try {
+            //if the user has not used the proper amount of cmd line params throw
+            //an exception
+            if (args.length != 2) {
+                throw new Exception();
+            }
+
+            //int port = Integer.parseInt(args[2]);
+            new HShipper(args[0],
+                InetAddress.getLocalHost().toString().substring(InetAddress.getLocalHost()
+                                                                           .toString()
+                                                                           .indexOf("/") +
+                    1));
+
+            //            readFileData(String fileName);
+        } catch (Exception nfe) {
+            //user made a mistake with the command line params. Output a helpful msg
+            System.err.println("args.length= " + args.length);
+            System.err.println(
+                "Error -Usage- java HShipper <shipper code> <problem file name>");
+        }
+    }
+}

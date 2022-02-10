@@ -1,0 +1,39 @@
+package Hermes;
+
+
+/**
+ * This is the data structure for a shipment when it is being held on the master
+ * server.
+ * <p>Title: </p>
+ * <p>Description: This is the data structure for a shipment when it is being
+ * held on the master server. This should be modified for each different kind of
+ * problem.</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class MasterServerShipment {
+    int index;
+    float xCoord;
+    float yCoord;
+    float demand;
+    float earTime;
+    float latTime;
+    float servTime;
+
+    /**
+     * Costructor. Will parse the customer information from a customer type
+     * message.
+     * @param cust The customer message.
+     */
+    public MasterServerShipment(Message cust) {
+        index = Integer.parseInt(cust.getValue(MessageTags.IndexTag));
+        xCoord = Float.parseFloat(cust.getValue(MessageTags.XCoordTag));
+        yCoord = Float.parseFloat(cust.getValue(MessageTags.YCoordTag));
+        demand = Float.parseFloat(cust.getValue(MessageTags.DemandTag));
+        earTime = Float.parseFloat(cust.getValue(MessageTags.EarlyTimeTag));
+        latTime = Float.parseFloat(cust.getValue(MessageTags.LateTimeTag));
+        servTime = Float.parseFloat(cust.getValue(MessageTags.ServiceTimeTag));
+    }
+}

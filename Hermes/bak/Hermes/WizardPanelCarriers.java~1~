@@ -1,0 +1,33 @@
+package Hermes;
+
+import javax.swing.JPanel;
+import com.borland.jbcl.layout.*;
+import java.awt.*;
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class WizardPanelCarriers extends JPanel {
+  private XYLayout xYLayout1 = new XYLayout();
+
+  public WizardPanelCarriers() {
+    try {
+      jbInit();
+    }
+    catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  private void jbInit() throws Exception {
+    xYLayout1.setHeight(433);
+    this.setMinimumSize(new Dimension(433, 344));
+    this.setPreferredSize(new Dimension(433, 344));
+    this.setLayout(xYLayout1);
+  }
+}

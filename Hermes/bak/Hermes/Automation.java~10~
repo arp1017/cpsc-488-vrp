@@ -1,0 +1,55 @@
+package Hermes;
+
+import java.net.*;
+
+
+/**
+ * <p>Title: Automation.java </p>
+ * <p>Description: Runs the auctioning system without user dependent events.
+ *                 The user will set up which problem is to be solved with
+ *                 the number of carriers and their respective depots.  Then the
+ *                 entire auctioning process is run and completed without using
+ *                 GUI's or waiting for the user to click a button. </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 2.3
+ */
+public class Automation {
+    public Automation() {
+    }
+
+    public Automation(String dataFile, int numCarr, String depotFile) {
+	String thisIP = null;
+
+	try {
+	    thisIP = InetAddress.getLocalHost().toString().substring(InetAddress.getLocalHost()
+										.toString()
+										.indexOf("/") +
+		    1);
+	} catch (UnknownHostException ex) {
+	    ex.printStackTrace();
+	    System.exit(8008135);
+	}
+
+	System.out.println("Starting Master Server");
+	new Master(true);
+
+	for (int i = 0; i < numCarr; i++) {
+	    System.out.println("Starting carrier");
+	    new CarrierAgent(depotFile, thisIP, true);
+	}
+
+	System.out.println("Starting shipper");
+	new ShipperAgent(thisIP, dataFile);
+    }
+
+    public static void main(String[] args) {
+	if ((args.length > 0) && (args.length < 4)) {
+	    String dataFile = args[0];
+	    int numCarriers = Integer.parseInt(args[1]);
+	    String depotFile = args[2];
+	    new Automation("problems/" + dataFile, numCarriers, depotFile);
+	} else if (args.length == 0) {
+	    //run interface
+	}
+    }
+}

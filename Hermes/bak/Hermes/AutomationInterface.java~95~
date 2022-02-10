@@ -1,0 +1,411 @@
+package Hermes;
+
+import com.borland.jbcl.layout.*;
+
+import java.awt.*;
+import java.awt.event.*;
+
+import java.io.*;
+
+import java.util.Vector;
+
+import javax.swing.*;
+import javax.swing.tree.*;
+
+
+/**
+ * This class provides a user interface for configuring a set of problem files
+ * to run using the Hermes System.
+ * <p>Title:AutomationInterface </p>
+ * <p>Description: This class provides a user interface for configuring a set of
+ * problem files to run using the Hermes System.</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class AutomationInterface extends JFrame {
+    private JScrollPane jScrollPane1 = new JScrollPane();
+    private XYLayout xYLayout1 = new XYLayout();
+    private JTree jTree1 = new JTree();
+    private DefaultMutableTreeNode root = new DefaultMutableTreeNode(
+            "Problem Set");
+    private JButton jbRun = new JButton();
+    private JMenuBar jMenuBar = new JMenuBar();
+    private JMenu jMenuFile = new JMenu();
+    private JMenuItem jmiNew = new JMenuItem();
+    private JMenuItem jmiOpen = new JMenuItem();
+    private JMenuItem jmiSave = new JMenuItem();
+    private JMenuItem jmiExit = new JMenuItem();
+    private Vector problems = new Vector();
+    private Problem currentProblem = new Problem();
+    private Vector carriers = new Vector();
+    private JLabel jLabel1 = new JLabel();
+    private JTextField jtfProblemFile = new JTextField();
+    private JButton jbProblemFileChooser = new JButton();
+    private JLabel jLabel2 = new JLabel();
+    private JTextField jtfProblemName = new JTextField();
+    private JLabel jLabel3 = new JLabel();
+    private JScrollPane jScrollPane2 = new JScrollPane();
+    private JList jlCarriers = new JList();
+    private JButton jbAddCarrier = new JButton();
+    private JButton jbDelCarrier = new JButton();
+    private JLabel jLabel4 = new JLabel();
+    private JTextField jtfDepotFile = new JTextField();
+    private JButton jbDepotFileChooser = new JButton();
+    private JButton jbAddProblem = new JButton();
+    private JButton jbLoad = new JButton();
+    private JButton jbDelete = new JButton();
+
+    /**
+ * Constructor
+ */
+    public AutomationInterface() {
+        try {
+            jbInit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+ * Initializes the visual elements of the display
+ * @throws Exception bad element initializaiton
+ */
+    private void jbInit() throws Exception {
+        this.setTitle("Automation Configuration");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel contentPane = (JPanel) this.getContentPane();
+        contentPane.setLayout(xYLayout1);
+
+        //add the menu
+        jMenuFile.setText("File");
+        jmiNew.setText("New");
+        jmiNew.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    //new button event here
+                }
+            });
+        jmiOpen.setText("Open");
+        jmiOpen.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    openAutomationFile();
+                }
+            });
+        jmiSave.setText("Save");
+        jmiSave.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    saveAutomationFile();
+                }
+            });
+        jmiExit.setText("Exit");
+        jmiExit.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(1);
+                }
+            });
+        jLabel1.setText("Problem File: ");
+
+        jLabel2.setText("Problem Name");
+        jtfProblemName.setText("New Problem");
+        currentProblem.problemName = "New Problem";
+        jtfProblemName.addFocusListener(new java.awt.event.FocusAdapter() {
+                public void focusGained(FocusEvent e) {
+                    jtfProblemName_focusGained(e);
+                }
+            });
+        jLabel3.setText("Carriers");
+        jLabel4.setText("Depot File: ");
+
+        jMenuFile.add(jmiNew);
+        jMenuFile.add(jmiOpen);
+        jMenuFile.add(jmiSave);
+        jMenuFile.insertSeparator(3);
+        jMenuFile.add(jmiExit);
+        jMenuBar.add(jMenuFile);
+        this.setJMenuBar(jMenuBar);
+
+        //set up the tree
+        jTree1 = new JTree(root);
+        jScrollPane1.getViewport().setView(jTree1);
+
+        //set buttons
+        jbRun.setText("Run");
+        jbRun.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    run();
+                }
+            });
+        jbAddProblem.setText("Add Problem");
+        jbAddProblem.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    addProblem();
+                }
+            });
+        jbAddCarrier.setText("Add Carrier");
+        jbAddCarrier.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    addCarrier();
+                }
+            });
+        jbDelCarrier.setText("Del Carrier");
+        jbDelCarrier.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    delCarrier();
+                }
+            });
+        jbLoad.setText("Load");
+        jbLoad.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    loadProblem();
+                }
+            });
+        jbDelete.setText("Delete");
+        jbDelete.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    deleteProblem();
+                }
+            });
+        jbProblemFileChooser.setText("...");
+        jbProblemFileChooser.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    chooseProblemFile();
+                }
+            });
+        jbDepotFileChooser.setText("...");
+        jbDepotFileChooser.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    chooseDepotFile();
+                }
+            });
+
+        xYLayout1.setWidth(539);
+        xYLayout1.setHeight(510);
+        contentPane.add(jScrollPane1, new XYConstraints(0, 0, 157, 426));
+        contentPane.add(jLabel1, new XYConstraints(193, 54, 80, 24));
+        contentPane.add(jtfProblemFile, new XYConstraints(269, 55, 107, -1));
+        contentPane.add(jbProblemFileChooser, new XYConstraints(377, 55, 20, 19));
+        contentPane.add(jLabel2, new XYConstraints(181, 19, 85, 21));
+        contentPane.add(jtfProblemName, new XYConstraints(271, 20, 102, -1));
+        contentPane.add(jLabel3, new XYConstraints(191, 101, 77, 21));
+        contentPane.add(jScrollPane2, new XYConstraints(198, 126, 243, 135));
+        contentPane.add(jbAddCarrier, new XYConstraints(202, 266, 115, 29));
+        contentPane.add(jbDelCarrier, new XYConstraints(320, 266, 115, 29));
+        contentPane.add(jLabel4, new XYConstraints(220, 317, -1, -1));
+        contentPane.add(jtfDepotFile, new XYConstraints(283, 314, 111, 22));
+        contentPane.add(jbDepotFileChooser, new XYConstraints(396, 315, 20, 17));
+        contentPane.add(jbAddProblem, new XYConstraints(201, 410, 128, 45));
+        contentPane.add(jbRun, new XYConstraints(352, 411, 128, 42));
+        contentPane.add(jbDelete, new XYConstraints(79, 428, 77, -1));
+        contentPane.add(jbLoad, new XYConstraints(1, 428, 77, -1));
+        jScrollPane2.getViewport().add(jlCarriers, null);
+
+        this.setSize(new Dimension(539, 518));
+        this.setVisible(true);
+    }
+
+    /**
+ * This will run the list of problems
+ */
+    private void run() {
+        System.out.println("run");
+    }
+
+    /**
+ * Will add a problem configuration to the problem list
+ */
+    private void addProblem() {
+        currentProblem.problemName = jtfProblemName.getText();
+
+        if (currentProblem.problemFile.equals("")) {
+            JOptionPane.showMessageDialog(this,
+                "Problem File not Specified " + currentProblem.problemFile);
+            jtfProblemFile.transferFocus();
+        } else if (currentProblem.problemName.equals("")) {
+            JOptionPane.showMessageDialog(this, "Problem Name not Specified");
+            jtfProblemName.transferFocus();
+        } else if (currentProblem.carriers.size() == 0) {
+            JOptionPane.showMessageDialog(this, "No carriers for problem");
+            jtfDepotFile.transferFocus();
+        } else {
+            //see if problem is already on tree
+            boolean alreadyThere = false;
+
+            for (int i = 0; i < root.getChildCount(); i++) {
+                DefaultMutableTreeNode node = (DefaultMutableTreeNode) root.getChildAt(i);
+                Problem thisProb = (Problem) node.getUserObject();
+
+                if (thisProb.problemName.equals(currentProblem.problemName)) {
+                    alreadyThere = true;
+                    node = new DefaultMutableTreeNode(currentProblem);
+                    problems.setElementAt(currentProblem, i);
+                }
+            }
+
+            if (!alreadyThere) {
+                //add problem to the tree
+                root.add(new DefaultMutableTreeNode(currentProblem));
+                problems.add(currentProblem);
+            }
+
+            jTree1 = new JTree(root);
+            jScrollPane1.setViewportView(jTree1);
+
+            //clear out interface
+            currentProblem = new Problem();
+            jlCarriers.setListData(new Vector());
+            jtfProblemName.setText("New Problem");
+            jtfProblemFile.setText("");
+            jtfDepotFile.setText("");
+        }
+    }
+
+    /**
+ * This will add a carrier to the problem configuration
+ */
+    private void addCarrier() {
+        if (jtfDepotFile.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "No depot file specified");
+            jtfDepotFile.transferFocus();
+        } else {
+            currentProblem.addCarrier(jtfDepotFile.getText());
+            jlCarriers.setListData(currentProblem.carriers);
+            jtfDepotFile.setText("");
+        }
+    }
+
+    /**
+ * Removes a carrier from the problem configuration
+ */
+    private void delCarrier() {
+        if ((currentProblem.carriers.size() != 0) &&
+                (jlCarriers.getSelectedIndex() > -1)) {
+            currentProblem.carriers.remove(jlCarriers.getSelectedIndex());
+            jlCarriers.setListData(currentProblem.carriers);
+        }
+    }
+
+    /**
+ * Starts a file chooser to select the problem file
+ */
+    private void chooseProblemFile() {
+        JFileChooser chooser = new JFileChooser("./problems");
+
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            currentProblem.problemFile = chooser.getSelectedFile().getName();
+            jtfProblemFile.setText(currentProblem.problemFile);
+        }
+    }
+
+    /**
+ * Starts a file chooser to select a depot file
+ */
+    private void chooseDepotFile() {
+        JFileChooser chooser = new JFileChooser("./problems");
+
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            jtfDepotFile.setText(chooser.getSelectedFile().getName());
+        }
+    }
+
+    /**
+ * Will load a problem set file
+ */
+    private void openAutomationFile() {
+        JFileChooser chooser = new JFileChooser(".");
+
+        if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File inFile = chooser.getSelectedFile();
+            ObjectInputStream in;
+
+            try {
+                in = new ObjectInputStream(new FileInputStream(inFile));
+                problems = (Vector) in.readObject();
+
+                //update interface
+                for (int i = 0; i < problems.size(); i++) {
+                    root.add(new DefaultMutableTreeNode(
+                            (Problem) problems.elementAt(i)));
+                }
+
+                jTree1 = new JTree(root);
+                jScrollPane1.setViewportView(jTree1);
+            } catch (InvalidClassException ice) {
+                JOptionPane.showMessageDialog(this,
+                    "The file: " + inFile +
+                    " is corrupted or not properly formatted");
+                System.err.println(
+                    "This file is corrupted or not properly formatted");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            } catch (ClassNotFoundException cnfe) {
+                cnfe.printStackTrace();
+            }
+        }
+    }
+
+    /**
+ * will save the problem set
+ */
+    private void saveAutomationFile() {
+        JFileChooser chooser = new JFileChooser(".");
+
+        if (chooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+            File outFile = chooser.getSelectedFile();
+            ObjectOutputStream out;
+
+            try {
+                out = new ObjectOutputStream(new FileOutputStream(outFile));
+                out.writeObject(problems);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    /**
+ * Will load a problem from the tree to the text fields for editing
+ */
+    private void loadProblem() {
+        if (jTree1.getLastSelectedPathComponent() != null) {
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
+            currentProblem = (Problem) node.getUserObject();
+
+            jlCarriers.setListData(currentProblem.carriers);
+            jtfProblemName.setText(currentProblem.problemName);
+            jtfProblemFile.setText(currentProblem.problemFile);
+            jtfDepotFile.setText("");
+        }
+    }
+
+    /**
+ * Will delete a problem from the problem list
+ */
+    private void deleteProblem() {
+        if (jTree1.getLastSelectedPathComponent() != null) {
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) jTree1.getLastSelectedPathComponent();
+            root.remove(node);
+            jTree1 = new JTree(root);
+            jScrollPane1.setViewportView(jTree1);
+        }
+    }
+
+    /**
+ * Will clear the problem name field the first time you click on it
+ * @param e the problem name text field has gained focus
+ */
+    void jtfProblemName_focusGained(FocusEvent e) {
+        if (jtfProblemName.getText().equals("New Problem")) {
+            jtfProblemName.setText("");
+        }
+    }
+
+    /**
+ * Starts the automation interface
+ * @param args command line arguments
+ */
+    public static void main(String[] args) {
+        new AutomationInterface();
+    }
+}

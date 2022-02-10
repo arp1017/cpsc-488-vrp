@@ -1,0 +1,34 @@
+package Hermes;
+
+import java.util.Vector;
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class Problem{
+  private String problemName;
+  private String problemFile;
+  private Vector carriers;
+
+  /**
+   * construct a new problem
+   * @param name name of the problem
+   * @param file the problem input file
+   * @param cs a vector of carriers
+   */
+  public Problem(String name, String file, Vector cs) {
+    problemName = name;
+    problemFile = file;
+    carriers = cs;
+  }
+
+  public String toString(){
+    return problemName + " " + carriers.size() + " " + problemFile;
+  }
+}

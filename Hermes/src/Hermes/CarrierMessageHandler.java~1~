@@ -1,0 +1,218 @@
+package Hermes;
+
+import Zeus.*;
+
+import java.io.*;
+import java.net.*;
+
+
+/**
+ * <p>Title: CarrierMessageHandler</p>
+ * <p>Description: this class receives a message over a socket and proceeses it accordingly</p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class CarrierMessageHandler extends Thread implements MessageTags {
+    /**
+     * socket to be read
+     */
+    private Socket incomingCommunication;
+    private ZeusAdaptor zAdapt;
+    private CarrierAgentInterface cai;
+
+    /**
+     * constructor reads message from incomming socket thread and processses it accordingdly
+     * @param inComm  socket created after connection was made
+     * @param zeus  instance of zeus for this carrier
+     * @todo update this...
+     */
+    public CarrierMessageHandler(Socket inComm,Zeus zeus, CarrierAgentInterface cai) {
+        //assigns the socket
+        incomingCommunication = inComm;
+        zAdapt = new ZeusAdaptor(zeus);
+        this.cai = cai;
+        //start the thread to handle the message
+        start();
+    }
+
+    /**
+     * this run will read and process the messages received over the socket accordingly
+     * when thread is start
+     */
+    public void run() {
+        try {
+            //create a reader to the socket
+            BufferedReader in = new BufferedReader(new InputStreamReader(
+                        incomingCommunication.getInputStream()));
+
+            //output writer socket
+            PrintWriter out = new PrintWriter(new BufferedWriter(
+                        new OutputStreamWriter(
+                            incomingCommunication.getOutputStream())), true);
+
+            //now process the message using socket reader.
+            processMessageToCarrier(in, out);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * this method, processes the message gotten over a socket accordingly
+     * @param in  buffered input stream of socket
+     * @param out  output stream of socket
+     * @throws IOException
+     * @todo processMessageToCarrier currently left as void must be changed later
+     */
+    public void processMessageToCarrier(BufferedReader in, PrintWriter out)
+        throws IOException {
+        boolean closeSocket = true;
+
+        try {
+            Message ackMessage = new Message();
+            Message clientMsg;
+            String messageType;
+            ackMessage.setMessageType(AckTag);
+            clientMsg = new Message(in.readLine());
+            messageType = clientMsg.getMessageType();
+
+            if (messageType.equals(AckTag)) {
+            } else if (messageType.equals(StartBroadcastTag)) {
+                out.println(ackMessage.getMessageString());
+            } else if (messageType.equals(EndBroadcastTag)) {
+                out.println(ackMessage.getMessageString());
+            } else if (messageType.equals(CalculateTag)) {
+              System.out.println("Calculate Tag");
+                try {
+                    Message costMsg;
+                    Message addr = clientMsg.getMessage(MessageTags.InetAddressTag);
+
+                    //ZEUS & ZEUS_ADAPTOR FONCTIONALITIES WILL BE HERE
+                    int iIndex = Integer.parseInt(clientMsg.getValue(IndexTag));
+                    float lX = Float.parseFloat(clientMsg.getValue(XCoordTag));
+                    float lY = Float.parseFloat(clientMsg.getValue(YCoordTag));
+                    float lDemand = Float.parseFloat(clientMsg.getValue(
+                                DemandTag));
+                    float lEar = Float.parseFloat(clientMsg.getValue(
+                                EarlyTimeTag));
+                    float lLat = Float.parseFloat(clientMsg.getValue(
+                                LateTimeTag));
+                    float lServ = Float.parseFloat(clientMsg.getValue(
+                                ServiceTimeTag));
+                    costMsg = zAdapt.insertCostCar(iIndex, lX, lY, lDemand,
+                            lEar, lLat, lServ);
+
+                    //make a message for the address of this carrier
+                    Message carrierAddress = new Message();
+                    carrierAddress.setMessageType(MessageTags.InetAddressTag);
+                    carrierAddress.addArgument(MessageTags.IPAddressTag, cai.getIP());
+                    carrierAddress.addArgument(MessageTags.PortNumberTag, "" + cai.getPort());
+
+                    //add the carrier's address to the cost message
+                    costMsg.addArgument(carrierAddress);
+
+                    //wrap the cost message to be forwarded to the shipper
+                    Message msg = new Message();
+                    msg.setMessageType(MessageTags.RelayTag);
+                    msg.addArgument(MessageTags.PackagedMessageTag, InsertCostTag);
+                    addr.setMessageType(RelayAddressTag);
+                    msg.addArgument(addr);
+                    msg.addArgument(costMsg);
+
+                    //System.out.println("Sending cost tag to Zeus " + msg);
+
+                    //System.out.println(msg);
+
+                    new ThreadedClient(msg, HermesGlobals.masterServerIP,
+                                       HermesGlobals.masterServerPortNo); //send messge
+
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+            } else if (messageType.equals(AcceptTag)) {
+              System.out.println("Accept Tag");
+                try {
+
+                  Message status = new Message();
+                  Message addr = clientMsg.getMessage(MessageTags.InetAddressTag);
+
+                  // INSERT CUSTOMER INTO SCHEDULE
+                  int iIndex = Integer.parseInt(clientMsg.getValue(
+                      IndexTag));
+                  float lX = Float.parseFloat(clientMsg.getValue(
+                      XCoordTag));
+                  float lY = Float.parseFloat(clientMsg.getValue(
+                      YCoordTag));
+                  float lDemand = Float.parseFloat(clientMsg.getValue(
+                      DemandTag));
+                  float lEar = Float.parseFloat(clientMsg.getValue(
+                      EarlyTimeTag));
+                  float lLat = Float.parseFloat(clientMsg.getValue(
+                      LateTimeTag));
+                  float lServ = Float.parseFloat(clientMsg.getValue(
+                      ServiceTimeTag));
+                  status = zAdapt.insert(iIndex, lX, lY, lDemand, lEar,
+                      lLat, lServ);
+
+                  //wrap the status message to be forwarded to the shipper
+                  Message msg = new Message();
+                  msg.setMessageType(MessageTags.RelayTag);
+                  msg.addArgument(MessageTags.PackagedMessageTag, status.getMessageType());
+                  addr.setMessageType(RelayAddressTag);
+                  msg.addArgument(addr);
+                  msg.addArgument(status);
+                  //System.out.println(msg);
+                  sendStatusToShipperViaMaster(msg);
+
+
+                } catch (Exception exception) {
+                  exception.printStackTrace();
+                }
+            } else if(messageType.equals(TerminateTag)){
+              System.out.println("Terminating Carrier Agent.");
+              System.exit(0);
+            }            else if (messageType.equals(EnableTag)){
+              //enable all buttons on carrier
+              cai.EnableCarrierJButtons();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (closeSocket) {
+                    in.close();
+                }
+            } catch (IOException e) {
+            }
+
+            if (closeSocket) {
+                out.close();
+            }
+        }
+    }
+
+    /**
+     * sends the cost to the shipper via master
+     * @param msg  cost message
+     */
+    public void sendCostTagFromZeus(Message msg) {
+
+
+    }
+
+    /**
+     * sends a tag about the status of the accepted shipment, either confirm
+     * or reject
+     * @param msg  status message
+     */
+    public void sendStatusToShipperViaMaster(Message msg) {
+      //System.out.println("sendStatusToShipperViaMaster");
+
+            new ThreadedClient(msg, HermesGlobals.masterServerIP,
+                               HermesGlobals.masterServerPortNo); //send messge
+
+    }
+}

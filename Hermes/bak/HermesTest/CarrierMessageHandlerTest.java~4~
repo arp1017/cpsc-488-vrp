@@ -1,0 +1,35 @@
+package HermesTest;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: CarrierMessageHandlerTest.java </p>
+ * <p>Description: Tests the carrier agent message handler class. </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 2.3
+ */
+public class CarrierMessageHandlerTest extends TestCase {
+    public CarrierMessageHandlerTest() {
+    }
+
+    /**
+     * tests to see if the incoming message is being parsed properly.
+     */
+    public void testProcessMessage() {
+    }
+
+    /**
+     * tests to see if zeus is giving us the cost properly
+     */
+    public void getCostFromZeus() {
+    }
+
+    /**
+     * tests to see if this shipment can be inserted into Zeus.
+     */
+    public void getAcceptFromZeus() {
+    }
+}

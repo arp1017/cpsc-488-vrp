@@ -1,0 +1,23 @@
+package Hermes;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class CarrierDatabaseInterfaceTest extends TestCase {
+    public CarrierDatabaseInterfaceTest() {
+    }
+
+    public static void main(String[] args) {
+        CarrierDatabaseInterfaceTest carrierDatabaseInterfaceTest1 = new CarrierDatabaseInterfaceTest();
+    }
+}

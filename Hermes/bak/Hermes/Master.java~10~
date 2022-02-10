@@ -1,0 +1,29 @@
+package Hermes;
+
+import java.util.Vector;
+
+
+/**
+ * <p>Title: Master.java </p>
+ * <p>Description: The main class for the master server. This will start the server.</p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 2.3
+ */
+public class Master {
+    private MasterAgentInterface agentInterface;
+
+    /**
+     * Constructor, starts the master agent interface
+     */
+    public Master() {
+        agentInterface = new MasterAgentInterface();
+    }
+
+    /**
+     * Driver class for master server
+     * @param args command line arguments - none used
+     */
+    public static void main(String[] args) {
+        new Master();
+    }
+}

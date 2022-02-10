@@ -1,0 +1,23 @@
+package Hermes;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class MasterServerShipmentTest {
+    public MasterServerShipmentTest() {
+    }
+
+    public static void main(String[] args) {
+        MasterServerShipmentTest masterServerShipmentTest1 = new MasterServerShipmentTest();
+    }
+}

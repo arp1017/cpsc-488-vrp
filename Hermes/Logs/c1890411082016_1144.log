@@ -1,0 +1,13 @@
+Registered with Master Server: 10.1.40.232:18904
+Incoming message: <Calculate><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>885.0</EarlyTime><LateTime>994.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Calculate>
+Cost for 1: <InsertCost><Cost>110861.1</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index></InsertCost>
+Incoming message: <Accept><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>885.0</EarlyTime><LateTime>994.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Accept>
+Accepting 1: Status: <Confirm><Index>1</Index></Confirm>
+Incoming message: <LocalOpt></LocalOpt>
+Runnning Lesser Optimization on this Carrier
+Incoming message: <Calculate><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>802.0</EarlyTime><LateTime>893.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Calculate>
+Cost for 2: <InsertCost><Cost>102111.67</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index></InsertCost>
+Incoming message: <Accept><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>802.0</EarlyTime><LateTime>893.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Accept>
+Accepting 2: Status: <Confirm><Index>2</Index></Confirm>
+Incoming message: <LocalOpt></LocalOpt>
+Runnning Lesser Optimization on this Carrier

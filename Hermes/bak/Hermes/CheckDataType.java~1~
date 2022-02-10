@@ -1,0 +1,66 @@
+package Hermes;
+
+/*;((
+ * Written by: Dr. Sam R. Thangiah.
+ * Copyright by: Dr. Sam R. Thangiah, 2003.
+ *
+ * Date: February 21, 2002
+ * Description:  This is a static class that is checks a data type
+ *               and returns a true or false
+ */
+
+ public class CheckDataType
+ {
+
+  //check for integer type
+  static boolean checkIntType(String s)
+  {
+    try {
+         int i = Integer.parseInt(s);
+      return true;
+    }
+    catch (Exception e){
+        return false;
+    }
+  }
+
+  //check for float type
+  static boolean checkFloatType(String s)
+  {
+    try {
+         float i = Float.parseFloat(s);
+      return true;
+    }
+    catch (Exception e){
+        return false;
+    }
+  }
+
+  //check for double type
+  static boolean checkDoubleType(String s)
+  {
+    try {
+         double i = Double.parseDouble(s);
+      return true;
+    }
+    catch (Exception e){
+        return false;
+    }
+
+  }
+
+  public static void main(String[] args)
+  {
+    //check the static methods
+    System.out.println("1 is an integer "+checkIntType("1"));
+    System.out.println("a is an integer "+checkIntType("a"));
+    System.out.println("1.2 is an integer "+checkFloatType("1.2"));
+    System.out.println("r.e is an integer "+checkFloatType("r.e"));
+    System.out.println("1.2 is an integer "+checkDoubleType("1.2"));
+    System.out.println("r.e is an integer "+checkDoubleType("r.e"));
+
+  }
+
+
+
+ }

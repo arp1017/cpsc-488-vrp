@@ -1,0 +1,23 @@
+package Hermes;
+
+import java.util.Vector;
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class Master {
+  public static Vector shipments;
+
+  public Master() {
+    shipments = new Vector();
+  }
+
+  public static void main(String args[]){
+    new Master();
+  }
+}

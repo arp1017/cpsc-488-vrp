@@ -1,0 +1,37 @@
+Incoming message: <Register><AgentType>Shipper</AgentType><Code>null</Code><Name>null</Name><InternetAddress><IPAddress>10.1.40.232</IPAddress></InternetAddress></Register>
+Registering Shipper: null null 10.1.40.232:14987
+Incoming message: <Register><AgentType>Carrier</AgentType><Code>2020</Code><Name>UPS SRU</Name><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>0</PortNumber></InternetAddress></Register>
+Registering Shipper: UPS SRU 2020 10.1.40.232:18904
+Incoming message: <StartPoints></StartPoints>
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>885.0</EarlyTime><LateTime>994.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>885.0</EarlyTime><LateTime>994.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 18904
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></RelayAddress><InsertCost><Cost>110861.1</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>18904</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.40.232 14987----><InsertCost><Cost>110861.1</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>18904</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>18904</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>885.0</EarlyTime><LateTime>994.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.40.232 18904----><Accept><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>885.0</EarlyTime><LateTime>994.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></RelayAddress><Confirm><Index>1</Index></Confirm></Relay>
+Relaying message to 10.1.40.232 14987----><Confirm><Index>1</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>1</Index><XCoord>45.0</XCoord><YCoord>68.0</YCoord><Demand>10.0</Demand><EarlyTime>885.0</EarlyTime><LateTime>994.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 18904
+Incoming message: <GetSummary></GetSummary>
+Incoming message: <Broadcast><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>802.0</EarlyTime><LateTime>893.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Calculate></Broadcast>
+Broadcasting to carriers from handler: <Calculate><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>802.0</EarlyTime><LateTime>893.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Calculate>
+Broadcasting to carrier: 18904
+Incoming message: <Relay><Package>InsertCost</Package><RelayAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></RelayAddress><InsertCost><Cost>102111.67</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>18904</PortNumber></InternetAddress></InsertCost></Relay>
+Relaying message to 10.1.40.232 14987----><InsertCost><Cost>102111.67</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>18904</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Incoming message: <Relay><RelayAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>18904</PortNumber></RelayAddress><Package>Accept</Package><Accept><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>802.0</EarlyTime><LateTime>893.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Accept></Relay>
+Relaying message to 10.1.40.232 18904----><Accept><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>802.0</EarlyTime><LateTime>893.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Accept>
+Incoming message: <Relay><Package>Confirm</Package><RelayAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></RelayAddress><Confirm><Index>2</Index></Confirm></Relay>
+Relaying message to 10.1.40.232 14987----><Confirm><Index>2</Index></Confirm>
+Incoming message: <AuctionBreak><Destination>Carrier</Destination><Package>Calculate</Package><Calculate><Index>2</Index><XCoord>45.0</XCoord><YCoord>70.0</YCoord><Demand>30.0</Demand><EarlyTime>802.0</EarlyTime><LateTime>893.0</LateTime><ServiceTime>90.0</ServiceTime><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>14987</PortNumber></InternetAddress></Calculate></AuctionBreak>
+Optimizing all Carriers.
+Incoming message: <LocalOpt></LocalOpt>
+Sending Lesser Optimization message to All registered Carriers
+Broadcasting to carriers from handler: <LocalOpt></LocalOpt>
+Broadcasting to carrier: 18904
+Incoming message: <GetSummary></GetSummary>

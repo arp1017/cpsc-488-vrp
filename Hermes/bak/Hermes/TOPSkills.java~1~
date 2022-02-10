@@ -1,0 +1,428 @@
+//Title:        Master Server
+//Version:
+//Copyright:    Copyright (c) 1999
+//Author:       Sam R. Thangiah & Olena Shmygelska
+//Company:      SRT Research
+//Description:  This is the Skills class, deals with input/output processing;
+package MSS8;
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+public class TOPSkills implements MessageTags {
+  /**constructor, does nothing*/
+  public TOPSkills(){}
+   //---------------------------------------------------------------------------
+   //this is where data from input file is getting read in
+   static class JobStructure{
+      public int index;
+      public float xCoord; //x coordinate
+      public float yCoord; //y coordinate;
+      public float demand; //demand at this customer;
+      public float earTime; //earliest time for the beginning of service;
+      public float latTime; //latest time for the end of service;
+      public float servTime; //service time for the customer;
+      public int PickupFlag; //is it a pickup or delivery point;
+      public Message sJob; //XML representation of this job;
+      public float cost; //best cost for this point given by a carrier;
+      public String carrierName; //carrier who bid the highest cost;
+      public String carrierPort; //carrier who bid the highest cost;
+      public int numBids; //number of carriers that bid for this point;
+      public int insertAfter; //insert this point after point #;
+   }
+   //biggest number of points that can be processed
+   public static int N = 1000;
+   //variable that keeps actual number of jobs read in
+   public static int iLineIndex = 0;
+   public static int number = 0;
+   //depo coordinates;
+   public static float depoX = 0;
+   public static float depoY = 0;
+   public static float maxX = 0;
+   public static float maxY = 0;
+   public static long maxTime = 0;
+   public static long maxCap = 0;
+   public static int maxNum = 0;
+   public static int flag_sort = 1; //sorting flag, when set to 1 points are
+                                    //sorted in the order of earliest time; otherwise
+                                    //they are sorted by polar angle;
+//    public static String delim =" ";
+    public static String delim = "\t";
+
+   //---------------------------------------------------------------------------
+   //array of JobStructures
+   public  static JobStructure[] JobArray = new JobStructure[N];
+   //---------------------------------------------------------------------------
+   static class OutputProcessing{
+   static PrintStream ostream;
+   public static void  openFile(){
+   try{
+   ostream = new PrintStream(
+                                 new FileOutputStream("e:/out.txt"));
+   MasterServerFrame.printString2("file OPENED!");
+   }catch(Exception io){
+    MasterServerFrame.printString2(io);
+   }
+   }
+   /**Writes into the specified file*/
+    public static void writeFile(String str){
+        try{
+
+         //ISubspace TOPspace = (ISubspace)Namespace.lookup(space);
+
+         // ostream.writeInt(num_nodes);
+         String put = "---"+str;
+         ostream.println(put);
+
+         //ostream.close();
+      }catch(Exception exsp){
+         System.err.println(exsp);
+      }
+
+   }
+      /*public static void writeDataFile(String space){
+        try{
+         PrintStream ostream = new PrintStream(
+                                 new FileOutputStream("E:/AgentFol/data"));
+         //ISubspace TOPspace = (ISubspace)Namespace.lookup(space);
+         int num_nodes = iLineIndex;//TOPCommunication.GetNumTakenPoints(TOPspace);
+         int indexArray [] = new int [iLineIndex];
+         //indexArray = TOPCommunication.GetIndexArray(TOPspace);
+         long max_capacity = TOPAgent.Samecapacity;
+         long max_distance = TOPAgent.Samedistance;
+
+        // ostream.writeInt(num_nodes);
+        String put = num_nodes+" "+max_capacity+" "+max_distance;
+         ostream.println(put);
+         MasterServerFrame.printString2(put+"\n");
+
+         for(int i = 0; i<num_nodes; i++){
+            put = "";
+            put = TOPSkills.JobArray[i].index+"\t"+TOPSkills.JobArray[i].xCoord+
+                  "\t"+TOPSkills.JobArray[i].yCoord+"\t"+TOPSkills.JobArray[i].pieces;
+            ostream.println(put);
+        }
+        ostream.close();
+      }catch(Exception exsp){
+         System.err.println(exsp);
+      }
+      }
+      public static void writeDepotFile(String space){
+        try{
+         PrintStream ostream = new PrintStream(
+                                 new FileOutputStream("E:/AgentFol/depot"));
+         //ISubspace TOPspace = (ISubspace)Namespace.lookup(space);
+         int num_depots = TOPEnvironment.TOPAgentNumber-1;
+         // ostream.writeInt(num_nodes);
+         String put = ""+num_depots;
+         ostream.println(put);
+         MasterServerFrame.printString2(put);
+         for(int i = 1; i<TOPEnvironment.TOPAgentNumber; i++){
+            put = TOPCommunication.GetDepoCoord(TOPspace,i);
+            put = put+"\t"+"0";
+            ostream.println(put);
+            //MasterServerFrame.printString2(put+"\n");
+         }
+         ostream.close();
+      }catch(Exception exsp){
+         System.err.println(exsp);
+      }
+      }
+      //------------------------------------------------------------------------
+      public static void writeRouteFile(String space){
+        try{
+         PrintStream ostream = new PrintStream(
+                                 new FileOutputStream("E:/AgentFol/route.dat"));
+         //ISubspace TOPspace = (ISubspace)Namespace.lookup(space);
+         int num_trucks = TOPEnvironment.TOPAgentNumber-1;
+         // ostream.writeInt(num_nodes);
+         String put = ""+num_trucks;
+         ostream.println(put);
+         MasterServerFrame.printString2(put);
+         for(int i = 1; i<TOPEnvironment.TOPAgentNumber; i++){
+            put = "A"+" ";
+            put = put+TOPCommunication.GetRout(TOPspace,i);
+            ostream.println(put);
+            MasterServerFrame.printString2(put+"\n");
+         }
+         ostream.close();
+      }catch(Exception exsp){
+         System.err.println(exsp);
+      }
+      }*/
+
+   }
+   //---------------------------------------------------------------------------
+   /**static class that deals with reading data from file and processing it*/
+   static class InputProcessing{
+      //number of jobs in the input file
+
+      //array which stores the lines from the file
+      public static String[] LinesFromFile = new String[N];
+
+      //------------------------------------------------------------------------
+      /**parses the input files into strings that get read in into the static
+      string array LinesFromFile*/
+      public static void ParseInputFile(String sInputFileName)
+      {//opens the input file, and then reads each line out, and puts it into the
+       //LinesFromFile array.
+
+       //the string that contains the current line
+       String sLine;
+
+       //creating an array of string for each linesFromFile
+       for(int i = 0; i<LinesFromFile.length; i++)
+       {
+         LinesFromFile[i] = new String();
+       }
+
+       try
+       {
+         //open the file
+         DataInputStream in =
+             new DataInputStream(new FileInputStream(new File(sInputFileName)));
+
+         //read in the first line
+
+         in.readLine();
+
+         //this is the index for assigning the lines to the array
+         iLineIndex = 0;
+         String Max = in.readLine();
+         StringTokenizer st = new StringTokenizer(Max,delim);
+         maxX = (Float.valueOf(st.nextToken())).floatValue();
+         MasterServerFrame.printString2(maxX);
+         maxY =  (Float.valueOf(st.nextToken())).floatValue();
+         maxNum =  (Integer.valueOf(st.nextToken())).intValue();
+         MasterServerFrame.printString2(maxY);
+         String garb = in.readLine();
+         if( garb.substring( 0, 5 ).equals( "DEPOT" ) )
+         {
+           String Depo = in.readLine();
+           st = new StringTokenizer(Depo,delim);
+           depoX = (Float.valueOf(st.nextToken())).floatValue();
+           MasterServerFrame.printString2(depoX);
+           depoY =  (Float.valueOf(st.nextToken())).floatValue();
+           MasterServerFrame.printString2(depoY);
+           in.readLine();
+         }
+         sLine = in.readLine();
+         //MasterServerFrame.printString2(sLine);
+         int i = 0;
+         while (i<maxNum) //sLine != null)
+         {
+           //store the current line in the array
+           //MasterServerFrame.printString2(sLine);
+           LinesFromFile[iLineIndex] = sLine;
+           //MasterServer.consoleFrame.printConsole(" line = "+i+" "+LinesFromFile[iLineIndex]);
+           //increment the values for the next loop
+           sLine = in.readLine();
+           iLineIndex++;
+           i++;
+         }
+         //in.readLine();
+         maxTime = (Long.valueOf(in.readLine().trim())).longValue();
+         MasterServerFrame.printString2("maxTime = "+maxTime);
+         in.readLine();
+         maxCap = (Long.valueOf(in.readLine().trim())).longValue();
+         MasterServerFrame.printString2("maxCap = "+maxCap);
+         //close the input file
+         in.close();
+
+       }
+       catch(Exception e)
+       {
+         MasterServerFrame.printString2(e.toString() + "\n");
+
+       }
+
+     }
+
+     //-------------------------------------------------------------------------
+     /**parse the lines from file further and fill the JobStructure array*/
+     public static void ProcessFileLines()
+     {
+     try{
+       int iArrayIndex;
+       Message sLine;
+       StringTokenizer st;
+       String sIndex="";
+       String sXCord="";
+       String sYCord="";
+       String sDemand="";
+       String sEarTime="";
+       String sLatTime="";
+       String sServTime="";
+       String sPickupFlag="";
+       String sTheta="";
+       //initalize the array
+       for(int i = 0; i<JobArray.length; i++)
+       {
+         JobArray[i] = new JobStructure();
+       }
+
+
+       iArrayIndex = 0;
+       //try{
+       //loop through all lines in the array
+       while ((iArrayIndex < iLineIndex) && (LinesFromFile[iArrayIndex].length() > 0))
+       {
+         st = new StringTokenizer(LinesFromFile[iArrayIndex], delim);
+
+         //use the StringTokenizer class to get the tokens
+         sXCord = st.nextToken();
+         //MasterServerFrame.printString2(sIndex);
+
+         JobArray[iArrayIndex].xCoord = (Float.valueOf(sXCord)).floatValue();
+         //MasterServerFrame.printString2(sXCord);
+         sYCord = st.nextToken();
+         JobArray[iArrayIndex].yCoord = (Float.valueOf(sYCord)).floatValue();
+         sDemand = st.nextToken();
+         JobArray[iArrayIndex].demand = (Float.valueOf(sDemand)).floatValue();
+         sIndex = st.nextToken();
+         JobArray[iArrayIndex].index = (Integer.valueOf(sIndex)).intValue();
+
+         //dist;
+         st.nextToken();
+         //theta;
+         st.nextToken();
+         sEarTime = st.nextToken();
+         JobArray[iArrayIndex].earTime = (Float.valueOf(sEarTime)).floatValue();
+         sLatTime = st.nextToken();
+         JobArray[iArrayIndex].latTime = (Float.valueOf(sLatTime)).floatValue();
+         sServTime = st.nextToken();
+         JobArray[iArrayIndex].servTime = (Float.valueOf(sServTime)).floatValue();
+         //sPickupFlag = st.nextToken();
+         //JobArray[iArrayIndex].PickupFlag = (Integer.valueOf(sPickupFlag)).intValue();
+
+         //create the string messsage & load it into the array
+         /*sLine = "(Job :index " + sIndex + " :xcord " + sXCord + " :ycord "
+                + sYCord + " :demand " + sDemand + " :ear "+sEarTime+" :lat "+
+                sLatTime+" :serv "+sServTime+" )"; */
+         sLine = new Message( );
+         sLine.setMessageType( CustomerTag );
+         sLine.addArgument( IndexTag, sIndex );
+         sLine.addArgument( XCoordTag, sXCord );
+         sLine.addArgument( YCoordTag, sYCord );
+         sLine.addArgument( DemandTag, sDemand );
+         sLine.addArgument( EarlyTimeTag, sEarTime );
+         sLine.addArgument( LateTimeTag, sLatTime );
+         sLine.addArgument( ServiceTimeTag, sServTime );
+         //sLine = "" + sIndex + ";" + sXCord + ";"
+         //       + sYCord + ";" + sDemand + ";"+sEarTime+";"+
+         //       sLatTime+";"+sServTime;
+         //sLine = ""+sIndex + "," + sXCord + ","+sYCord + "," + sDemand + ","+sEarTime+","+
+          //      sLatTime+","+sServTime;
+         //MasterServerFrame.printString2(sLine+"\n");
+
+         JobArray[iArrayIndex].sJob = new Message( sLine );
+         //MasterServer.consoleFrame.printConsole(" line = "+sLine);
+         //increment value for next loop
+         iArrayIndex++;
+         number++;
+       }
+        }catch(Exception e){
+          MasterServerFrame.printString2("error in processing lines "+e);
+          e.printStackTrace( );
+       }
+
+     }
+  //----------------------------------------------------------------------------
+    /**sorts points in the order of the ear time/increasing polar angle;*/
+    public static void sortPoints(){
+    try{
+      if(flag_sort==1){
+        for(int i = 0; i< iLineIndex; i++){
+        for(int j = i+1; j< iLineIndex; j++){
+           //MasterServerFrame.printString2(i+" just "+j+ " " + iLineIndex);
+          if(JobArray[i].earTime> JobArray[j].earTime){
+            //MasterServerFrame.printString2(i+" "+j);
+            int t_index = JobArray[i].index;
+            //MasterServerFrame.printString2(t_index);
+            float t_xCoord = JobArray[i].xCoord;
+            //MasterServerFrame.printString2(t_xCoord);
+            float t_yCoord = JobArray[i].yCoord;
+            //MasterServerFrame.printString2(t_xCoord);
+            float t_demand = JobArray[i].demand;
+            float t_earTime = JobArray[i].earTime;
+            float t_latTime = JobArray[i].latTime;
+            float t_servTime = JobArray[i].servTime;
+            //MasterServerFrame.printString2("done temp");
+            Message t_sLine = new Message( JobArray[ i ].sJob );
+            JobArray[i].index = JobArray[j].index;
+            JobArray[i].xCoord = JobArray[j].xCoord;
+            JobArray[i].yCoord = JobArray[j].yCoord;
+            JobArray[i].demand = JobArray[j].demand;
+            JobArray[i].earTime = JobArray[j].earTime;
+            JobArray[i].latTime = JobArray[j].latTime;
+            JobArray[i].servTime = JobArray[j].servTime;
+            JobArray[i].sJob = JobArray[j].sJob;
+            //MasterServerFrame.printString2("done i<-j");
+            JobArray[j].index = t_index;
+            JobArray[j].xCoord = t_xCoord;
+            JobArray[j].yCoord = t_yCoord;
+            JobArray[j].demand = t_demand;
+            JobArray[j].earTime = t_earTime;
+            JobArray[j].latTime = t_latTime;
+            JobArray[j].servTime = t_servTime;
+            JobArray[j].sJob = new Message( t_sLine );
+            //MasterServerFrame.printString2("done j<-temp");
+          }
+        }
+      }
+
+      }else{
+      for(int i = 0; i< iLineIndex; i++){
+        for(int j = i+1; j< iLineIndex; j++){
+           //MasterServerFrame.printString2(i+" just "+j+ " " + iLineIndex);
+          if(Math.atan((double)(JobArray[i].yCoord/JobArray[i].xCoord))> Math.atan((double)(JobArray[j].yCoord/JobArray[j].xCoord))){
+            //MasterServerFrame.printString2(i+" "+j);
+            int t_index = JobArray[i].index;
+            //MasterServerFrame.printString2(t_index);
+            float t_xCoord = JobArray[i].xCoord;
+            //MasterServerFrame.printString2(t_xCoord);
+            float t_yCoord = JobArray[i].yCoord;
+            //MasterServerFrame.printString2(t_xCoord);
+            float t_demand = JobArray[i].demand;
+            float t_earTime = JobArray[i].earTime;
+            float t_latTime = JobArray[i].latTime;
+            float t_servTime = JobArray[i].servTime;
+            //MasterServerFrame.printString2("done temp");
+            Message t_sLine = new Message( JobArray[ i ].sJob );
+            JobArray[i].index = JobArray[j].index;
+            JobArray[i].xCoord = JobArray[j].xCoord;
+            JobArray[i].yCoord = JobArray[j].yCoord;
+            JobArray[i].demand = JobArray[j].demand;
+            JobArray[i].earTime = JobArray[j].earTime;
+            JobArray[i].latTime = JobArray[j].latTime;
+            JobArray[i].servTime = JobArray[j].servTime;
+            JobArray[i].sJob = JobArray[j].sJob;
+            //MasterServerFrame.printString2("done i<-j");
+            JobArray[j].index = t_index;
+            JobArray[j].xCoord = t_xCoord;
+            JobArray[j].yCoord = t_yCoord;
+            JobArray[j].demand = t_demand;
+            JobArray[j].earTime = t_earTime;
+            JobArray[j].latTime = t_latTime;
+            JobArray[j].servTime = t_servTime;
+            JobArray[j].sJob = new Message( t_sLine );
+            //MasterServerFrame.printString2("done j<-temp");
+          }
+        }
+      }
+      }
+      for(int i = 0; i< iLineIndex; i++){
+      System.out.print(JobArray[i].index+" ");
+      }
+      System.out.print("\n");
+      }catch(Exception e){
+          MasterServerFrame.printString2("error");
+       }
+    }
+
+   }
+
+
+  //----------------------------------------------------------------------------
+
+
+}

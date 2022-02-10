@@ -1,0 +1,82 @@
+The Shape Migration process recognized 17 shapes in
+the document as being out-of-date.  These shapes have
+been updated to their most current versions.
+
+The original document has been backed up and saved as:
+"c:\documents and settings\mlm7800\desktop\hermes\doc\uml\hermes system_2.vsd".
+
+Shape ID=14 (messageHandler : MasterMessageHandler) of page ID=0 replaced with shape ID=85.
+	User.UMLObjectGUID has been updated to ""{E11D2E7F-E8CC-45B1-9679-2A54C613FADD}"".
+	User.UMLError has been updated to "1".
+	
+Shape ID=11 (messageListener : MasterMessageListener) of page ID=0 replaced with shape ID=88.
+	User.UMLObjectGUID has been updated to ""{A8EA00D0-F72C-4CA9-9AE7-59990FF67067}"".
+	User.UMLError has been updated to "1".
+	
+Shape ID=1 of page ID=0 replaced with shape ID=91.
+	User.UMLObjectGUID has been updated to ""{7C2497AA-535B-49F4-BC16-77DC1779BDAA}"".
+	
+Shape ID=17 of page ID=0 replaced with shape ID=100.
+	User.UMLObjectGUID has been updated to ""{562B176D-6CC2-4B25-A259-F300E5CFCE00}"".
+	
+Shape ID=26 of page ID=0 replaced with shape ID=109.
+	User.UMLObjectGUID has been updated to ""{DBA210C8-53A8-4647-8230-B7BDFD2FF2BE}"".
+	
+Shape ID=47 of page ID=0 replaced with shape ID=118.
+	User.UMLObjectGUID has been updated to ""{3CA9D3E2-58B6-4147-93ED-968C3BD7A428}"".
+	Successfully reconnected 4 existing shapes to this new shape.
+	
+Shape ID=44 (messageHandler : ShipperMessageHandler) of page ID=0 replaced with shape ID=127.
+	User.UMLObjectGUID has been updated to ""{A33FD0D6-D16A-4758-AE7B-0FA3C9691463}"".
+	User.UMLError has been updated to "1".
+	
+Shape ID=41 (messageListener : ShipperMessageListener) of page ID=0 replaced with shape ID=130.
+	User.UMLObjectGUID has been updated to ""{B6654982-E2D2-43CD-B8E2-AE1D2311548B}"".
+	User.UMLError has been updated to "1".
+	
+Shape ID=38 (messageHandler : CarrierMessageHandler) of page ID=0 replaced with shape ID=133.
+	User.UMLObjectGUID has been updated to ""{A5D8B282-4D0C-41A9-ADF9-A00360081D81}"".
+	User.UMLError has been updated to "1".
+	
+Shape ID=35 (messageListener : CarrierMessageListener) of page ID=0 replaced with shape ID=136.
+	User.UMLObjectGUID has been updated to ""{3E89D8EE-AC42-44A0-A61B-8162AB11E5FA}"".
+	User.UMLError has been updated to "1".
+	
+Shape ID=61 (masterDatabaseInterface : MasterDatabaseInterface) of page ID=0 replaced with shape ID=139.
+	User.UMLObjectGUID has been updated to ""{82916103-D448-4729-BEC4-8FDC1668FB96}"".
+	Successfully reconnected 1 existing shapes to this new shape.
+	
+Shape ID=58 (carrierDatabaseInterface : CarrierDatabaseInterface) of page ID=0 replaced with shape ID=142.
+	User.UMLObjectGUID has been updated to ""{BCF7FDA4-33DA-40C6-B0B3-899B9E5CF9F3}"".
+	Successfully reconnected 1 existing shapes to this new shape.
+	
+Shape ID=73 of page ID=0 replaced with shape ID=145.
+	User.MessageCount has been updated to "0".
+	User.UMLError has been updated to "1".
+	User.UMLObjectGUID has been updated to ""{9A9989D4-E90F-44E1-AB48-FD3C031E5487}"".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=71 of page ID=0 replaced with shape ID=157.
+	User.UMLObjectGUID has been updated to ""{C290F50B-59C9-404E-89FF-474C38BBFBC4}"".
+	User.UMLError has been updated to "1".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=69 of page ID=0 replaced with shape ID=159.
+	User.UMLObjectGUID has been updated to ""{66D8BF95-2D3A-4DD8-8CD5-8AF2D0E2769A}"".
+	User.UMLError has been updated to "1".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=67 of page ID=0 replaced with shape ID=161.
+	User.UMLObjectGUID has been updated to ""{A15C44C8-8B6D-491D-860B-D31D86B744EF}"".
+	User.UMLError has been updated to "1".
+	Successfully reconnected this new shape to 2 existing shapes. 
+	
+Shape ID=64 (shipperDatabaseInterface : ShipperDatabaseInterface) of page ID=0 replaced with shape ID=163.
+	User.UMLObjectGUID has been updated to ""{78B38CAE-8E78-4AD3-BEE9-1479006F59D1}"".
+	Successfully reconnected 2 existing shapes to this new shape.
+	
+
+
+17 shapes updated (0 transformations, 17 replacements.)
+
+Shape Migration Complete - 0 error(s), 0 warning(s)

@@ -1,0 +1,16 @@
+package Hermes;
+
+
+/**
+ * <p>Title: CarrierDatabaseInterface.java </p>
+ * <p>Description: This is the interface class to the carrier agent database.
+ *    It extendes DatabaseInterface which contains the access protocols and methods
+ *    to interact with a database. </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class CarrierDatabaseInterface extends DatabaseInterface {
+    public CarrierDatabaseInterface(String databaseName) {
+        super(databaseName);
+    }
+}

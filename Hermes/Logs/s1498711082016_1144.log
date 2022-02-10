@@ -1,0 +1,11 @@
+Sending shipments from 10.1.40.232:14987
+Sending shipment 1 to master server
+Processing message: <InsertCost><Cost>110861.1</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>1</Index><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>18904</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  1 by 10.1.40.232:18904 is $110861.1
+Shipment 1 was accepted for carrier 10.1.40.232:18904
+Processing message: <Confirm><Index>1</Index></Confirm>
+Sending shipment 2 to master server
+Processing message: <InsertCost><Cost>102111.67</Cost><AfterIndex>0</AfterIndex><TruckNumber>0</TruckNumber><Index>2</Index><InternetAddress><IPAddress>10.1.40.232</IPAddress><PortNumber>18904</PortNumber></InternetAddress><CarrierCount>1</CarrierCount></InsertCost>
+Bid for customer  2 by 10.1.40.232:18904 is $102111.67
+Shipment 2 was accepted for carrier 10.1.40.232:18904
+Processing message: <Confirm><Index>2</Index></Confirm>

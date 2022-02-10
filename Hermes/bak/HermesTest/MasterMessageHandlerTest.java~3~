@@ -1,0 +1,62 @@
+package HermesTest;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class MasterMessageHandlerTest extends TestCase {
+    public MasterMessageHandlerTest() {
+    }
+
+    public void setUp() {
+    }
+
+    /**
+     *
+     */
+    public void testInsertShipmentsIntoDatabase() {
+    }
+
+    /**
+     * tests to see if function determining if the port is used is working
+     * correctly
+     */
+    public void testPortNoUsed() {
+    }
+
+    /**
+     * tests to see if shipments are being posted to main linked list properly
+     */
+    public void testPostShipmentsToMainLinkedList() {
+    }
+
+    /**
+     * tests to see if carriers are being registered and port no being generated
+     * properly
+     */
+    public void testRegisterCarrier() {
+    }
+
+    /**
+     * tests to see if shippers are being registered and port no being generated
+     * properly
+     */
+    public void testRegisterShipper() {
+    }
+
+    /**
+     * checks to see if the accept messages are being generated properly and
+     * is being sent to the carrier.
+     */
+    public void testSendCustomerToCarrierToAccept() {
+    }
+}

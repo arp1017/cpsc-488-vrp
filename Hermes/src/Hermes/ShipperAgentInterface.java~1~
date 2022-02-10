@@ -1,0 +1,108 @@
+package Hermes;
+
+import java.net.*;
+
+/**
+ * Handles all communication between the shipper and the other agents.
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class ShipperAgentInterface {
+  /**
+   * Server socket that will listen for incoming communication to the shipper.
+   */
+  ShipperMessageListener messageListener;
+
+  /**
+   * Constructor. Will create a new message listener on the specified port no
+   * @param PortNo the port number to create a listener on
+   */
+  public ShipperAgentInterface(String code, String IP) {
+    int PortNo = registerShipperWithMasterServer(code, IP);
+    messageListener = new ShipperMessageListener(PortNo);
+  }
+
+  /**
+   * Opens a socket and sends a message to the Master Server for registration.
+   * Once the server is registered, the Master Server will send the registered
+   * port number back to the server.
+   * @param code  Identifying code for the server
+   * @param IP  IP address of the server
+   * @return int  port number the server is registered under
+   */
+  public int registerShipperWithMasterServer(String code, String IP){
+    int portNo = 0;
+    Socket socket;
+    ThreadedClient tc;
+
+    //register the shipper in the master database
+    try {
+      Message addressMsg = new Message();
+      Message registerMsg = new Message();
+      //create a client to send the message to the master server
+
+      //create a new register message to tell master server that this shipper
+      //is now active
+      registerMsg.setMessageType(MessageTags.RegisterTag);
+      registerMsg.addArgument(MessageTags.AgentTypeTag, MessageTags.ShipperMessage);
+      registerMsg.addArgument(MessageTags.CodeTag, code);
+//      registerMsg.addArgument(MessageTags.NameTag, Shipper.getShipperName());
+
+      //create a message containing the address of this shipper for use by the
+      //master server
+      addressMsg.setMessageType(MessageTags.InetAddressTag);
+      addressMsg.addArgument(MessageTags.IPAddressTag, IP);
+//      addressMsg.addArgument(MessageTags.PortNumberTag, Integer.toString(HShipper.getPort()));
+      registerMsg.addArgument(addressMsg);
+
+      socket = new Socket(HermesGlobals.masterServerIP, HermesGlobals.masterServerPortNo);
+      tc = new ThreadedClient(registerMsg, socket);
+
+      //the message is to be sent to the master server
+//      sendRegisterClientMsg(HermesGlobals.masterServerIP,
+//                                   HermesGlobals.masterServerPortNo, registerMsg);
+    } catch (Exception e1) {
+    }
+    return portNo;
+  }
+
+  /**
+   * Will send the customers to the master server.
+   * @param shipperCode the unique identifier for this shipper
+   */
+  public void sendCustomersToMasterServer(String shipperCode) {
+    try {
+      //create new start and end messages
+      Message startPointsMessage = new Message();
+      Message endPointsMessage = new Message();
+      //create a new socket to the master server
+      Socket masterServerSocket = new Socket(HermesGlobals.masterServerIP,
+          HermesGlobals.masterServerPortNo);
+
+      //set the start and end points messages
+      startPointsMessage.setMessageType(MessageTags.StartSendPointsTag);
+      endPointsMessage.setMessageType(MessageTags.EndSendPointsTag);
+      //send the start points message
+//      client.sendCommunicationMsg(masterServerSocket, startPointsMessage);
+      //loop through the customers, sending each to the master server
+      for (int i = 0; i < TOPSkills.number; i++) {
+        Message msg = new Message();
+        //set the shipments' attributes to the message
+        msg.setMessageType(MessageTags.ShipmentTag);
+        msg.addArgument(MessageTags.DestinationTag, MessageTags.ServerMessage);
+        msg.addArgument(MessageTags.CodeTag, shipperCode);
+        msg.addArgument(TOPSkills.JobArray[i].sJob);
+        //send the message tsendRegisterClientMsg(o the master server
+//        client.sendCommunicationMsg(masterServerSocket, msg);
+      }
+      //send the end points message
+//      client.sendCommunicationMsg(masterServerSocket, endPointsMessage);
+    } catch (Exception e1) {
+      e1.printStackTrace();
+    }
+  }
+}

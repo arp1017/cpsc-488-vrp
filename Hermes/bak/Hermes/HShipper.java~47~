@@ -1,0 +1,39 @@
+package Hermes;
+
+import java.net.InetAddress;
+
+/**
+ * Driver Program for the Hermes Shipper Agent.
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class HShipper {
+    public static boolean isVerbose = false; // for debugging later
+    private ShipperAgentInterface sai;
+
+    /**
+     * Costructor. Will begin the Shipper Agent
+     * @param IP shipper IP address
+     */
+    public HShipper(String IP) {
+        isVerbose = true;
+        sai = new ShipperAgentInterface(IP);
+    }
+
+
+    public static void main(String[] args) {
+            /**
+             * This section of code will:
+             * 1) create an instance of a shipper agent
+             * 2) find the IP address of the machine the shipper is created on
+             */
+            new HShipper(InetAddress.getLocalHost().toString()
+                .substring(InetAddress.getLocalHost()
+                .toString().indexOf("/") + 1));
+
+    }
+}

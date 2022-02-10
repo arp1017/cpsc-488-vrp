@@ -1,0 +1,70 @@
+package Hermes;
+
+import java.sql.*;
+
+
+/*
+ * <p>Title: DatabaseInterface.java </p>
+ * <p>Description: Provides a default communication platform for database
+		   interaction.</p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 2.3
+ */
+public class DatabaseInterface {
+    //names of database links
+    public static final String INTRACARRIER = "E-IntraCarrier"; //IntraCarrier.mdb
+    public static final String INTRASHIPS = "E-IntraShips"; //IntraShip.mdb
+    public static final String REGISTERSHIPCAR = "E-RegisterShipCarr"; //RegisterShipperCarrier.mdb
+    public static final String MAINDATABASE = "E-TransMainDB"; //MainDatabase.mdb
+    public static final String TRANSSHIPS = "E-TransShips"; //Shipper.mdb
+    public static final String TRANSTRUCKS = "E-TransTrucks"; //Carrier.mdb
+    private Connection connDrv;
+    private ResultSet result = null;
+
+
+    /**
+ * Will create a new connection to the database that is passed
+ * @param databaseName database link to connect to
+ */
+    public DatabaseInterface(String databaseName) {
+	try {
+	    //load the database
+	    Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+
+	    //establish a connection using the jdbc odbc bridge
+	    connDrv = DriverManager.getConnection("jdbc:odbc:" + databaseName,
+		    "", "");
+	} catch (Exception e) {
+	    e.printStackTrace();
+	}
+    }
+
+    /**
+ * Will execute an SQL statement on the connected database, will return
+ * a result set if one is present.
+ * @param sql SQL statement
+ * @return ResultSet  result or null if none
+ */
+    public ResultSet executeSQL(String sql) {
+	Statement stmt = null;
+
+	try {
+	    stmt = connDrv.createStatement();
+	    boolean hasResult = false;
+	    try {
+		hasResult = stmt.execute(sql);
+	    }
+	    catch (SQLException ex) {
+		System.err.println("Error executing a statement: " + ex);
+	    }
+
+	    if (hasResult) {
+		result = stmt.getResultSet();
+	    }
+	} catch (SQLException sqle) {
+	    sqle.printStackTrace();
+	}
+
+	return result;
+    }
+}

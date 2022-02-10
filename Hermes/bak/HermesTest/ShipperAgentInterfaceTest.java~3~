@@ -1,0 +1,48 @@
+package HermesTest;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class ShipperAgentInterfaceTest extends TestCase {
+    public ShipperAgentInterfaceTest() {
+    }
+
+    public void setUp() {
+    }
+
+    /**
+     * test to see if ShipmentLinkedList is created properly.
+     */
+    public void testConstructor() {
+    }
+
+    /**
+     * Test to see if the file data is read in properly.
+     */
+    public void testReadFileData() {
+    }
+
+    /**
+     * Test to see if the registration process and port number
+     * is returned.
+     */
+    public void testRegisterShipperWithMasterServer() {
+        //send socket to itself
+    }
+
+    /**
+     * tests to see if customers are being properly sent to the master server
+     */
+    public void testSendCustomersToMasterServer() {
+    }
+}

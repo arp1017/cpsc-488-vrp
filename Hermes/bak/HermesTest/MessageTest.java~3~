@@ -1,0 +1,64 @@
+package HermesTest;
+
+import junit.framework.*;
+
+import junit.runner.BaseTestRunner;
+
+
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class MessageTest extends TestCase {
+    public MessageTest() {
+    }
+
+
+    /**
+     * test to see if constructor is working properly
+     */
+    public void testConstructor(){
+
+    }
+
+    /**
+     * tests to see if an argument is added properly
+     */
+    public void testAddArgument(){
+
+    }
+
+    /**
+     * test to see if the arguments are cleared properly
+     */
+    public void testClearArguments(){
+
+    }
+
+    /**
+     * test to see if you can get a message based upon its tag
+     */
+    public void testGetMessage(){
+
+    }
+
+    /**
+     * test to see if you can get a value contained within a tag
+     */
+    public void testGetValue(){
+
+    }
+
+    /**
+     * test to see if you can set messages properly
+     */
+    public void testSetMessage(){
+
+    }
+
+
+}

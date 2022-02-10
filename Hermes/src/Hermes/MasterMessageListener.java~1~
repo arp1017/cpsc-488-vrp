@@ -1,0 +1,72 @@
+package Hermes;
+
+import java.net.*;
+
+/**
+ * Thread that will listen for incoming messages to the master server.
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class MasterMessageListener extends Thread{
+
+  private MasterAgentInterface mai;
+  private boolean keepRunning = true;
+  /**
+   * socket that will listen for connections and spawn new sockets once new
+   * connections are made
+   */
+  private ServerSocket server;
+
+  /**
+   * Constructor, will make a server socket and run the thread to listen on it.
+   * @param portNo port to listen to.
+   */
+  public MasterMessageListener(int portNo) {
+    try{
+      server = new ServerSocket(portNo);
+      start();
+    }
+    catch(Exception e){
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Will stop the loop for the thread.
+   */
+  public void stopThread(){
+    keepRunning = false;
+  }
+
+  /**
+   * Sets the instance of MasterAgentInterface that created this listener
+   * @param inter  the MasterAgentInterface that created this listener
+   */
+  public void setAgent(MasterAgentInterface inter) {
+    mai = inter;
+  }
+
+  /**
+   * The message listener thread's run method. Will listen for connections and
+   * spawn new threads once the connections are made.
+   */
+  public void run(){
+    try{
+      while(keepRunning){
+        Socket incoming;
+        //once a new connection is made assign the socket to incoming
+        incoming = server.accept();
+
+        new MasterMessageHandler(incoming);
+      }
+    }
+    catch(Exception e){
+      e.printStackTrace();
+    }
+  }
+}

@@ -1,0 +1,125 @@
+package Hermes;
+
+import java.net.*;
+import java.sql.*;
+import java.util.*;
+
+/**
+ * Interface for communication with all other agents
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+public class MasterAgentInterface {
+
+  MasterMessageListener messageListener;
+
+  /**
+   * Constructor, starts the message listener
+   */
+  public MasterAgentInterface() {
+    messageListener = new MasterMessageListener(HermesGlobals.masterServerPortNo);
+  }
+
+  /**
+   * Broadcasts all the points to all the registered carriers.
+   * @todo create a shipment message from the information in the database
+   */
+  public void broadcastAllPointsToCarriers(){
+    try {
+     //connect to the registered shippers and carriers database
+     DatabaseInterface database = new DatabaseInterface(DatabaseInterface.REGISTERSHIPCAR);
+
+     //get the registered carriers from the database
+     ResultSet carrier = database.queryDatabase("Select * from RegCarriers");
+
+     //create sockets for all of the carriers in the database
+     Vector carrierSockets = new Vector();
+
+     do{
+       //get the IPAddress in string form out of the 4th column and get the
+       //port number out of the 5 column from the result set. Make a new socket
+       //using this information
+       carrierSockets.add(new Socket(carrier.getString(4),
+                                     Integer.parseInt(carrier.getString(5))));
+     }while(carrier.next());
+
+     //make a start and end broadcasting tag to send to the carriers
+      Message startBroadcastMessage = new Message();
+      Message endBroadcastMessage = new Message();
+      startBroadcastMessage.setMessageType(MessageTags.StartBroadcastTag);
+      endBroadcastMessage.setMessageType(MessageTags.EndBroadcastTag);
+
+
+      //create an array for the broadcast sockets so they can be used by the
+      //sendBroadcastCommunicationMsg method.
+      Socket [] carrierBroadcastSockets = null;
+      carrierSockets.toArray(carrierBroadcastSockets);
+
+      //broadcast a start communicating message to the carriers and shippers
+      new ThreadedClient(startBroadcastMessage,carrierBroadcastSockets);
+
+      //open a connection to the main database
+      database = new DatabaseInterface(DatabaseInterface.MAINDATABASE);
+      //get all the customers out of the main database
+      ResultSet customers = database.queryDatabase("Select * from Ships");
+
+      //loop through the result set creating calculate message for each shipment
+      do{
+        Message customerMsg = new Message();
+        customerMsg.setMessageType(MessageTags.CalculateTag);
+
+        /**
+         * create shipment message from database info.... not sure how to do
+         */
+
+        //broadcast the customer to all of the carriers
+        for(int i=0; i<carrierBroadcastSockets.length; i++){
+          new ThreadedClient(customerMsg, carrierBroadcastSockets[i]);
+        }
+
+      }while(customers.next());
+
+      //broadcast a end communication message to all the carriers
+      new ThreadedClient(endBroadcastMessage,carrierBroadcastSockets);
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+
+
+  /**
+   * THIS WILL BE MOVED TO THE MASTER MESSAGE HANDLER!!!!
+   * This method sends a customer to the carrier after it has won the bidding
+   * process. This will create an Accept message and will send it to the carrier
+   * @param customer customer to send
+   * @param address address of the carrier
+   */
+  private void sendCustomerToCarrierToAccept(Message customer, Message address){
+    try{
+      //get the carrier's IP and port
+      String ip = address.getValue(MessageTags.IPAddressTag);
+      int port = Integer.parseInt(address.getValue(MessageTags.PortNumberTag));
+
+      //create a message asking the carrier if it wishes to accept this customer
+      Message msg = new Message();
+      msg.setMessageType(MessageTags.AcceptTag);
+      msg.addArgument(MessageTags.DestinationTag, MessageTags.CarrierMessage);
+      msg.addArgument(customer);
+
+      //make a socket to send to this carrier the accept message
+      Socket carrierSocket = new Socket(ip, port);
+
+      //send this message using the threaded client
+      new ThreadedClient(msg, carrierSocket);
+
+    }catch(Exception e){
+      e.printStackTrace();
+    }
+  }
+}

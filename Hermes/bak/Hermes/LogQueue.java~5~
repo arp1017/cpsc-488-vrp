@@ -1,0 +1,100 @@
+package Hermes;
+
+import java.lang.*;
+
+import java.util.*;
+
+
+/**
+ * QueueCell - node of the queue
+ */
+class QueueCell {
+    String logMsg = "";
+    QueueCell next = null;
+
+    QueueCell(String msg) {
+        logMsg = msg;
+        next = null;
+    }
+}
+
+
+/**
+ * <p>Title: LogQueue.java </p>
+ * <p>Description: LogQueue Class is a queue for log messages. </p>
+ * @author
+ * @version 1.0
+ */
+public class LogQueue extends java.lang.Object {
+    private QueueCell head = null; //head of the queue;
+    private QueueCell last = null; //last message in the queue;
+
+    /** Constructor Creates new LogQueue */
+    public LogQueue() {
+    }
+
+    /**
+    * append.
+    *
+    * @param msg - String msg to write to a log file
+    */
+    public synchronized void append(String msg) {
+        if (head == null) {
+            head = new QueueCell(msg);
+            last = head;
+        } else {
+            last.next = new QueueCell(msg);
+            last = last.next;
+        }
+    }
+
+    /**
+    * getNextMsg.
+    *
+    * @return msg - string next message in the queue
+    */
+    public synchronized String getNextMsg() {
+        String msg = "";
+
+        if (head == null) {
+            return msg;
+        } else {
+            QueueCell temp = head;
+            head = head.next;
+            msg = temp.logMsg;
+            temp = null;
+
+            return msg;
+        }
+    }
+
+    /**
+    * isAvailable.
+    *
+    * @return boolean - is there any messages in the queue (true/false)
+    */
+    public boolean isAvailable() {
+        if (head == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+    * toString.
+    *
+    * @return String - all the messages in the queue
+    */
+    public String toString() {
+        String ret = "";
+        QueueCell temp = head;
+
+        while (temp != null) {
+            ret = ret + "\n" + temp.logMsg;
+            temp = temp.next;
+        }
+
+        return ret;
+    }
+}

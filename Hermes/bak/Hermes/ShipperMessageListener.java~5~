@@ -1,0 +1,55 @@
+package Hermes;
+
+import java.io.*;
+import java.net.*;
+
+/**
+ * Thread that will listen for connections on the shipper's port, and spawn
+ * other threads to handle the messages
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2004</p>
+ * <p>Company: </p>
+ * @author Ola Laleye, Mike McNamara, Anthony Pitluga
+ * @version 1.0
+ */
+
+public class ShipperMessageListener extends Thread{
+
+  /**
+   * socket that will listen for connections and spawn new sockets once new
+   * connections are made
+   */
+  private ServerSocket server;
+
+  /**
+   * Constructor, will make a server socket and run the thread to listen on it.
+   * @param portNo port to listen to.
+   */
+  public ShipperMessageListener(int portNo) {
+    try{
+      server = new ServerSocket(portNo);
+    }
+    catch(Exception e){
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * The message listener thread's run method. Will listen for connections and
+   * spawn new threads once the connections are made.
+   */
+  public void run(){
+    try{
+      Socket incoming;
+      //once a new connection is made assign the socket to incoming
+      incoming = server.accept();
+
+      new ShipperMessageHandler(incoming);
+
+    }
+    catch(Exception e){
+      e.printStackTrace();
+    }
+  }
+}

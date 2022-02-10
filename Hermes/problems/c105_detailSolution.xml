@@ -1,0 +1,669 @@
+VRPTW File       : e:\agent-based-vehicle-routing-problem\hermes\problems\c105.txt
+No. of Shippers  : 1
+No. of Shipments : 100
+No. of Carriers  : 2
+Maximum Capacity : 200.0
+Maximum Distance : 1236.0
+********************************************
+Over all Travel Time ========= 11456.527
+Over all Distance covered === 2283.7754
+Over all Service Time ======== 9000.0
+Over all Wait Time =========== 172.75143
+Over all Tardiness Time ====== 0.0
+Over all  Excess Time ========= 0.0
+Over all  Overload =========== 0.0
+********************************************
+Depot No. and vertices are:  1 10.0 10.0
+     Truck number:             0
+     Maximum duration:         1236
+     Maximum capacity:         200
+     Current Demand:           180.0     Current Duration:         259.66595
+     Current No. of Shipments: 10
+     totalWaitTime             47.139862060546875
+     TravelTime                1206.8057861328125
+     totalServiceTime          900.0
+     totalDistance covered     259.66595458984375
+     totalTardinessTime        0.0
+     totalExcessTime           0.0
+     totalOverload             0.0
+     Total local 1-Opts 57
+     Total local 2-Opts 0
+     Total local 3-Opts 0
+          Total number of cells: 12
+          Cell Index    :           0
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+           
+           
+          Cell Index    :           81
+          X coordinate  :           85.0
+          Y coordinate  :           35.0
+          Earliest Time :           47.0
+          Latest Time   :           201.0
+          Wait Time     :           0.0
+          Arrival Time  :           79.05694
+          Latest Arrival:           131.19684
+          Service Time  :           90.0
+          Distance to next:         49.73932
+          demand        :           30.0
+          AC            :           200.0
+          DC            :           170.0
+
+           
+           
+          Cell Index    :           54
+          X coordinate  :           42.0
+          Y coordinate  :           10.0
+          Earliest Time :           150.0
+          Latest Time   :           293.0
+          Wait Time     :           0.0
+          Arrival Time  :           218.79626
+          Latest Arrival:           270.93616
+          Service Time  :           90.0
+          Distance to next:         22.36068
+          demand        :           40.0
+          AC            :           170.0
+          DC            :           130.0
+
+           
+           
+          Cell Index    :           44
+          X coordinate  :           32.0
+          Y coordinate  :           30.0
+          Earliest Time :           332.0
+          Latest Time   :           439.0
+          Wait Time     :           0.8430481
+          Arrival Time  :           331.15695
+          Latest Arrival:           383.29684
+          Service Time  :           90.0
+          Distance to next:         25.70992
+          demand        :           10.0
+          AC            :           130.0
+          DC            :           120.0
+
+           
+           
+          Cell Index    :           58
+          X coordinate  :           38.0
+          Y coordinate  :           5.0
+          Earliest Time :           439.0
+          Latest Time   :           566.0
+          Wait Time     :           0.0
+          Arrival Time  :           447.70993
+          Latest Arrival:           499.00677
+          Service Time  :           90.0
+          Distance to next:         3.0
+          demand        :           30.0
+          AC            :           120.0
+          DC            :           90.0
+
+           
+           
+          Cell Index    :           60
+          X coordinate  :           35.0
+          Y coordinate  :           5.0
+          Earliest Time :           529.0
+          Latest Time   :           662.0
+          Wait Time     :           0.0
+          Arrival Time  :           540.70996
+          Latest Arrival:           592.0068
+          Service Time  :           90.0
+          Distance to next:         10.440307
+          demand        :           20.0
+          AC            :           90.0
+          DC            :           70.0
+
+           
+           
+          Cell Index    :           59
+          X coordinate  :           38.0
+          Y coordinate  :           15.0
+          Earliest Time :           607.0
+          Latest Time   :           784.0
+          Wait Time     :           0.0
+          Arrival Time  :           641.15027
+          Latest Arrival:           692.4471
+          Service Time  :           90.0
+          Distance to next:         16.552946
+          demand        :           10.0
+          AC            :           70.0
+          DC            :           60.0
+
+           
+           
+          Cell Index    :           68
+          X coordinate  :           45.0
+          Y coordinate  :           30.0
+          Earliest Time :           712.0
+          Latest Time   :           799.0
+          Wait Time     :           0.0
+          Arrival Time  :           747.7032
+          Latest Arrival:           799.0
+          Service Time  :           90.0
+          Distance to next:         5.0
+          demand        :           10.0
+          AC            :           60.0
+          DC            :           50.0
+
+           
+           
+          Cell Index    :           69
+          X coordinate  :           45.0
+          Y coordinate  :           35.0
+          Earliest Time :           889.0
+          Latest Time   :           996.0
+          Wait Time     :           46.296814
+          Arrival Time  :           842.7032
+          Latest Arrival:           901.0
+          Service Time  :           90.0
+          Distance to next:         15.0
+          demand        :           10.0
+          AC            :           50.0
+          DC            :           40.0
+
+           
+           
+          Cell Index    :           47
+          X coordinate  :           30.0
+          Y coordinate  :           35.0
+          Earliest Time :           982.0
+          Latest Time   :           1127.0
+          Wait Time     :           0.0
+          Arrival Time  :           994.0
+          Latest Arrival:           1006.0
+          Service Time  :           90.0
+          Distance to next:         2.0
+          demand        :           10.0
+          AC            :           40.0
+          DC            :           30.0
+
+           
+           
+          Cell Index    :           49
+          X coordinate  :           28.0
+          Y coordinate  :           35.0
+          Earliest Time :           969.0
+          Latest Time   :           1098.0
+          Wait Time     :           0.0
+          Arrival Time  :           1086.0
+          Latest Arrival:           1098.0
+          Service Time  :           90.0
+          Distance to next:         30.805843
+          demand        :           10.0
+          AC            :           30.0
+          DC            :           20.0
+
+          Cell Index    :           -1
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+
+     Truck number:             1
+     Maximum duration:         1236
+     Maximum capacity:         200
+     Current Demand:           190.0     Current Duration:         328.89584
+     Current No. of Shipments: 9
+     totalWaitTime             6.585124969482422
+     TravelTime                1145.48095703125
+     totalServiceTime          810.0
+     totalDistance covered     328.8958435058594
+     totalTardinessTime        0.0
+     totalExcessTime           0.0
+     totalOverload             0.0
+     Total local 1-Opts 57
+     Total local 2-Opts 0
+     Total local 3-Opts 0
+          Total number of cells: 11
+          Cell Index    :           0
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+           
+           
+          Cell Index    :           65
+          X coordinate  :           48.0
+          Y coordinate  :           40.0
+          Earliest Time :           50.0
+          Latest Time   :           155.0
+          Wait Time     :           1.585125
+          Arrival Time  :           48.414875
+          Latest Arrival:           61.26123
+          Service Time  :           90.0
+          Distance to next:         2.0
+          demand        :           10.0
+          AC            :           200.0
+          DC            :           190.0
+
+           
+           
+          Cell Index    :           63
+          X coordinate  :           50.0
+          Y coordinate  :           40.0
+          Earliest Time :           147.0
+          Latest Time   :           242.0
+          Wait Time     :           5.0
+          Arrival Time  :           142.0
+          Latest Arrival:           153.26123
+          Service Time  :           90.0
+          Distance to next:         35.510563
+          demand        :           50.0
+          AC            :           190.0
+          DC            :           140.0
+
+           
+           
+          Cell Index    :           53
+          X coordinate  :           44.0
+          Y coordinate  :           5.0
+          Earliest Time :           255.0
+          Latest Time   :           378.0
+          Wait Time     :           0.0
+          Arrival Time  :           272.51056
+          Latest Arrival:           278.7718
+          Service Time  :           90.0
+          Distance to next:         4.0
+          demand        :           20.0
+          AC            :           140.0
+          DC            :           120.0
+
+           
+           
+          Cell Index    :           56
+          X coordinate  :           40.0
+          Y coordinate  :           5.0
+          Earliest Time :           359.0
+          Latest Time   :           462.0
+          Wait Time     :           0.0
+          Arrival Time  :           366.51056
+          Latest Arrival:           372.7718
+          Service Time  :           90.0
+          Distance to next:         82.46211
+          demand        :           30.0
+          AC            :           120.0
+          DC            :           90.0
+
+           
+           
+          Cell Index    :           97
+          X coordinate  :           60.0
+          Y coordinate  :           85.0
+          Earliest Time :           531.0
+          Latest Time   :           652.0
+          Wait Time     :           0.0
+          Arrival Time  :           538.97266
+          Latest Arrival:           545.2339
+          Service Time  :           90.0
+          Distance to next:         5.0
+          demand        :           30.0
+          AC            :           90.0
+          DC            :           60.0
+
+           
+           
+          Cell Index    :           100
+          X coordinate  :           55.0
+          Y coordinate  :           85.0
+          Earliest Time :           608.0
+          Latest Time   :           765.0
+          Wait Time     :           0.0
+          Arrival Time  :           633.97266
+          Latest Arrival:           640.2339
+          Service Time  :           90.0
+          Distance to next:         5.0
+          demand        :           20.0
+          AC            :           60.0
+          DC            :           40.0
+
+           
+           
+          Cell Index    :           99
+          X coordinate  :           55.0
+          Y coordinate  :           80.0
+          Earliest Time :           705.0
+          Latest Time   :           858.0
+          Wait Time     :           0.0
+          Arrival Time  :           728.97266
+          Latest Arrival:           735.2339
+          Service Time  :           90.0
+          Distance to next:         45.705578
+          demand        :           10.0
+          AC            :           40.0
+          DC            :           30.0
+
+           
+           
+          Cell Index    :           66
+          X coordinate  :           47.0
+          Y coordinate  :           35.0
+          Earliest Time :           802.0
+          Latest Time   :           899.0
+          Wait Time     :           0.0
+          Arrival Time  :           864.6782
+          Latest Arrival:           870.93945
+          Service Time  :           90.0
+          Distance to next:         33.06055
+          demand        :           10.0
+          AC            :           30.0
+          DC            :           20.0
+
+           
+           
+          Cell Index    :           1
+          X coordinate  :           45.0
+          Y coordinate  :           68.0
+          Earliest Time :           885.0
+          Latest Time   :           994.0
+          Wait Time     :           0.0
+          Arrival Time  :           987.7388
+          Latest Arrival:           994.0
+          Service Time  :           90.0
+          Distance to next:         67.74216
+          demand        :           10.0
+          AC            :           20.0
+          DC            :           10.0
+
+          Cell Index    :           -1
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+
+     Truck number:             2
+     Maximum duration:         1236
+     Maximum capacity:         200
+     Current Demand:           110.0     Current Duration:         108.763535
+     Current No. of Shipments: 5
+     totalWaitTime             15.78717041015625
+     TravelTime                574.5507202148438
+     totalServiceTime          450.0
+     totalDistance covered     108.76353454589844
+     totalTardinessTime        0.0
+     totalExcessTime           0.0
+     totalOverload             0.0
+     Total local 1-Opts 8
+     Total local 2-Opts 0
+     Total local 3-Opts 0
+          Total number of cells: 7
+          Cell Index    :           0
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+           
+           
+          Cell Index    :           42
+          X coordinate  :           33.0
+          Y coordinate  :           32.0
+          Earliest Time :           27.0
+          Latest Time   :           190.0
+          Wait Time     :           0.0
+          Arrival Time  :           31.827662
+          Latest Arrival:           49.803436
+          Service Time  :           90.0
+          Distance to next:         3.0
+          demand        :           20.0
+          AC            :           200.0
+          DC            :           180.0
+
+           
+           
+          Cell Index    :           43
+          X coordinate  :           33.0
+          Y coordinate  :           35.0
+          Earliest Time :           16.0
+          Latest Time   :           144.0
+          Wait Time     :           0.0
+          Arrival Time  :           124.82766
+          Latest Arrival:           142.80344
+          Service Time  :           90.0
+          Distance to next:         5.3851647
+          demand        :           10.0
+          AC            :           180.0
+          DC            :           170.0
+
+           
+           
+          Cell Index    :           40
+          X coordinate  :           35.0
+          Y coordinate  :           30.0
+          Earliest Time :           236.0
+          Latest Time   :           349.0
+          Wait Time     :           15.78717
+          Arrival Time  :           220.21283
+          Latest Arrival:           238.1886
+          Service Time  :           90.0
+          Distance to next:         15.811388
+          demand        :           10.0
+          AC            :           170.0
+          DC            :           160.0
+
+           
+           
+          Cell Index    :           62
+          X coordinate  :           50.0
+          Y coordinate  :           35.0
+          Earliest Time :           235.0
+          Latest Time   :           344.0
+          Wait Time     :           0.0
+          Arrival Time  :           341.8114
+          Latest Arrival:           344.0
+          Service Time  :           90.0
+          Distance to next:         3.0
+          demand        :           20.0
+          AC            :           160.0
+          DC            :           140.0
+
+           
+           
+          Cell Index    :           74
+          X coordinate  :           53.0
+          Y coordinate  :           35.0
+          Earliest Time :           323.0
+          Latest Time   :           442.0
+          Wait Time     :           0.0
+          Arrival Time  :           434.8114
+          Latest Arrival:           442.0
+          Service Time  :           90.0
+          Distance to next:         49.73932
+          demand        :           50.0
+          AC            :           140.0
+          DC            :           90.0
+
+          Cell Index    :           -1
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+
+     Truck number:             3
+     Maximum duration:         1236
+     Maximum capacity:         200
+     Current Demand:           90.0     Current Duration:         198.89757
+     Current No. of Shipments: 5
+     totalWaitTime             0.0
+     TravelTime                648.8975830078125
+     totalServiceTime          450.0
+     totalDistance covered     198.89756774902344
+     totalTardinessTime        0.0
+     totalExcessTime           0.0
+     totalOverload             0.0
+     Total local 1-Opts 0
+     Total local 2-Opts 0
+     Total local 3-Opts 0
+          Total number of cells: 7
+          Cell Index    :           0
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+           
+           
+          Cell Index    :           90
+          X coordinate  :           60.0
+          Y coordinate  :           55.0
+          Earliest Time :           20.0
+          Latest Time   :           148.0
+          Wait Time     :           0.0
+          Arrival Time  :           67.26812
+          Latest Arrival:           141.37592
+          Service Time  :           90.0
+          Distance to next:         6.0
+          demand        :           10.0
+          AC            :           200.0
+          DC            :           190.0
+
+           
+           
+          Cell Index    :           86
+          X coordinate  :           66.0
+          Y coordinate  :           55.0
+          Earliest Time :           141.0
+          Latest Time   :           270.0
+          Wait Time     :           0.0
+          Arrival Time  :           163.26813
+          Latest Arrival:           237.37592
+          Service Time  :           90.0
+          Distance to next:         27.018513
+          demand        :           10.0
+          AC            :           190.0
+          DC            :           180.0
+
+           
+           
+          Cell Index    :           94
+          X coordinate  :           65.0
+          Y coordinate  :           82.0
+          Earliest Time :           260.0
+          Latest Time   :           361.0
+          Wait Time     :           0.0
+          Arrival Time  :           280.28665
+          Latest Arrival:           354.39444
+          Service Time  :           90.0
+          Distance to next:         3.6055512
+          demand        :           10.0
+          AC            :           180.0
+          DC            :           170.0
+
+           
+           
+          Cell Index    :           92
+          X coordinate  :           67.0
+          Y coordinate  :           85.0
+          Earliest Time :           331.0
+          Latest Time   :           478.0
+          Wait Time     :           0.0
+          Arrival Time  :           373.8922
+          Latest Arrival:           448.0
+          Service Time  :           90.0
+          Distance to next:         2.0
+          demand        :           20.0
+          AC            :           170.0
+          DC            :           150.0
+
+           
+           
+          Cell Index    :           93
+          X coordinate  :           65.0
+          Y coordinate  :           85.0
+          Earliest Time :           453.0
+          Latest Time   :           540.0
+          Wait Time     :           0.0
+          Arrival Time  :           465.8922
+          Latest Arrival:           540.0
+          Service Time  :           90.0
+          Distance to next:         93.00538
+          demand        :           40.0
+          AC            :           150.0
+          DC            :           110.0
+
+          Cell Index    :           -1
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+
+     Truck number:             4
+     Maximum duration:         1236
+     Maximum capacity:         200
+     Current Demand:           30.0     Current Duration:         172.21065
+     Current No. of Shipments: 2
+     totalWaitTime             0.0
+     TravelTime                352.21063232421875
+     totalServiceTime          180.0
+     totalDistance covered     172.2106475830078
+     totalTardinessTime        0.0
+     totalExcessTime           0.0
+     totalOverload             0.0
+     Total local 1-Opts 0
+     Total local 2-Opts 0
+     Total local 3-Opts 0
+          Total number of cells: 4
+          Cell Index    :           0
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+           
+           
+          Cell Index    :           98
+          X coordinate  :           58.0
+          Y coordinate  :           75.0
+          Earliest Time :           30.0
+          Latest Time   :           139.0
+          Wait Time     :           0.0
+          Arrival Time  :           80.80223
+          Latest Arrival:           91.61484
+          Service Time  :           90.0
+          Distance to next:         5.3851647
+          demand        :           20.0
+          AC            :           200.0
+          DC            :           180.0
+
+           
+           
+          Cell Index    :           96
+          X coordinate  :           60.0
+          Y coordinate  :           80.0
+          Earliest Time :           64.0
+          Latest Time   :           187.0
+          Wait Time     :           0.0
+          Arrival Time  :           176.1874
+          Latest Arrival:           187.0
+          Service Time  :           90.0
+          Distance to next:         86.023254
+          demand        :           10.0
+          AC            :           180.0
+          DC            :           170.0
+
+          Cell Index    :           -1
+          Depot Number  :           1
+          X coordinate  :           10.0
+          Y coordinate  :           10.0
+          Max distance  :           1236
+          Max capacity  :           200
+
+
+
+
